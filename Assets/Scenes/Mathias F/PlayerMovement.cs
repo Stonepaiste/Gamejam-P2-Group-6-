@@ -14,10 +14,14 @@ public class PlayerMovement : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            body.AddForce(new Vector3(0, 500, 0),ForceMode.Force);
+            body.AddForce(new Vector3(0, 50, 0),ForceMode.Acceleration);
             Debug.Log("Mouse Clicked");
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+           body.velocity*=0.25f;
         }
     }
 }
