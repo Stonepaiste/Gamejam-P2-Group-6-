@@ -24,5 +24,9 @@ public class PickupCheese : MonoBehaviour
             Pickup();
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag == "StinkyCheese")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
