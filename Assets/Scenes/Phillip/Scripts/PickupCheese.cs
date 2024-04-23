@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickupCheese : MonoBehaviour
 {
-    int cheeseCounter = 0;
+    public int cheeseCounter = 0;
 
     private void Awake()
     {
