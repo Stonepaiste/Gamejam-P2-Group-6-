@@ -131,6 +131,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: mapSections.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: mapSections.Array.data[1].cheeseAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: mapSections.Array.data[0].cheeseRange.max
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: mapSections.Array.data[0].cheeseRange.min
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: mapSections.Array.data[1].cheeseRange.max
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: mapSections.Array.data[1].cheeseRange.min
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: mapSections.Array.data[1].meteoriteAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: mapSections.Array.data[0].meteoriteRange.max
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: mapSections.Array.data[0].meteoriteRange.min
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: mapSections.Array.data[1].meteoriteRange.max
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: mapSections.Array.data[1].meteoriteRange.min
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2764342088751877943, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
       propertyPath: m_Name
       value: CelestialBodySpawner
