@@ -8,11 +8,11 @@ using Random = UnityEngine.Random;
 
 public class CelestialBodySpawner : MonoBehaviour
 {
-    [FormerlySerializedAs("MeteoritePrefab")] [SerializeField]
+    [SerializeField]
     private GameObject meteoritePrefab;
-    [FormerlySerializedAs("CheesePrefab")] [SerializeField]
-    private GameObject cheesePrefab;
-    [FormerlySerializedAs("StinkyCheesePrefab")] [SerializeField]
+    [SerializeField]
+    private GameObject cheesePrefab; 
+    [SerializeField]
     private GameObject stinkyCheesePrefab;
     
     [SerializeField]
@@ -35,14 +35,38 @@ public class CelestialBodySpawner : MonoBehaviour
     private List<float> phaseShifts = new List<float>();
     private List<float> waveOffsets = new List<float>();
     private List<Vector3> cheesePositions = new List<Vector3>();
-
-    /*private void Awake()
+    
+    
+    [System.Serializable]
+    public class CelestialBodyRange
     {
-        _phaseShift = Random.Range(-20f, 20f);
-        _waveOffset = Random.Range(waveOffsetMin, waveOffsetMax);
-    }*/
-
-    // Start is called before the first frame update
+        [Range(0, 100)]
+        public float min = 0;
+        [Range(0, 100)]
+        public float max = 100;
+    }
+    
+    
+    [System.Serializable]
+    public class MapSection
+    {
+        public float wavePhase;
+        public float waveOffset;
+        public float waveAmplitude;
+        public int cheeseAmount = 100;
+        public int meteoriteAmount = 500;
+        public int stinkyCheeseOccurrence = 10;
+        public CelestialBodyRange meteoriteRange = new CelestialBodyRange
+        {
+            min = 0,
+            max = 100
+        };
+        public CelestialBodyRange cheeseRange = new CelestialBodyRange();
+    }
+    
+    [SerializeField]
+    List<MapSection> mapSections = new List<MapSection>();
+    
     
     private TextMesh textMesh;
 
@@ -75,12 +99,12 @@ public class CelestialBodySpawner : MonoBehaviour
                 phaseCounter = 0;
                 phaseShiftInteval = Random.Range(5, 10);
                 waveOffset = Random.Range(waveOffsetMin, waveOffsetMax);
-                Debug.Log("Phase shift: " + phaseShift);
+                // Debug.Log("Phase shift: " + phaseShift);
             }
             
             float y = Mathf.Sin(x + phaseShift) + waveOffset;
             // float y = Mathf.Sin(x);
-            Debug.Log("PhaseShift: " + phaseShift + " x: " + x + " y: " + y);
+            // Debug.Log("PhaseShift: " + phaseShift + " x: " + x + " y: " + y);
             Vector3 position = new Vector3(x, y, 0);
             Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
 
@@ -90,7 +114,7 @@ public class CelestialBodySpawner : MonoBehaviour
                 cheese = Instantiate(stinkyCheesePrefab, transform.position + position, rotation);
                 stinkyCheeseCounter = 0;
                 stinkyCheeseInterval = Random.Range((int)(stinkyCheeseOccurrence * .5), stinkyCheeseOccurrence * 2);
-                Debug.Log("Stinky cheese spawned at " + position);
+                // Debug.Log("Stinky cheese spawned at " + position);
             }
             else
             {
@@ -109,7 +133,7 @@ public class CelestialBodySpawner : MonoBehaviour
         // Spawn meteorites around the cheeses randomly on the y-axis
         for (float x = 0; x < numberOfMeteorites / meteoriteDensity; x += 1/meteoriteDensity)
         {
-            Debug.Log("Meteorite spawn" + " _phaseShift: " + phaseShift + " _waveOffset: " + waveOffset);
+            // Debug.Log("Meteorite spawn" + " _phaseShift: " + phaseShift + " _waveOffset: " + waveOffset);
             Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
             // float y = Mathf.Sin(x + _phaseShift) + _waveOffset;
             // float y = Mathf.Sin(x);
