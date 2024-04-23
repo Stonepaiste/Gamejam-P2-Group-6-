@@ -140,6 +140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cheeseCounter: 0
+  fallAmount: 0
+  fallSpeed: 0
+  isStinkyCheese: 0
 --- !u!70 &4939612639184677447
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -173,5 +176,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.8, y: 1.7}
   m_Direction: 0
