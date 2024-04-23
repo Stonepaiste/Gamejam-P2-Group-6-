@@ -9,7 +9,7 @@ public class CelestialBodySpawner : MonoBehaviour
     private GameObject meteoritePrefab, cheesePrefab, stinkyCheesePrefab;
     
     [SerializeField]
-    private static int defaultCheeseAmount = 10;
+    private static int defaultCheeseAmount = 5;
     [SerializeField]
     private static int defaultMeteoriteAmount = 7;
     [SerializeField]
@@ -131,7 +131,7 @@ public class CelestialBodySpawner : MonoBehaviour
                 float y = Mathf.Sin(x + wavePhase) + waveOffset;
                 
                 Vector3 position = new Vector3(x, y, 0);
-                Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(-45, 45));
 
                 GameObject cheese;
                 if (stinkyCheeseCounter >= stinkyCheeseInterval)
