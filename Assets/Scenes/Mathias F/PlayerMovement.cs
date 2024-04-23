@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody body;
+    Rigidbody2D body;
 
     void Start()
     {
-        body= GetComponent<Rigidbody>();
+        body= GetComponent<Rigidbody2D>();
     }
 
     
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            body.AddForce(new Vector3(0, 50, 0),ForceMode.Acceleration);
+            body.AddForce(new Vector3(0, 50, 0),ForceMode2D.Force);
             Debug.Log("Mouse Clicked");
         }
         else if (Input.GetMouseButtonUp(0))
