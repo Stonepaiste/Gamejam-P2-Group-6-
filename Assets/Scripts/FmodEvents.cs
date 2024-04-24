@@ -8,6 +8,10 @@ public class FmodEvents : MonoBehaviour
     
     [field: Header("Cheesep pickup SFX")]
     [field: SerializeField] public EventReference cheesePickupSFX { get; private set; }
+    
+    [field: Header("Music")]
+    [field: SerializeField] public EventReference music { get; private set; }
+    
    public static FmodEvents instance { get; private set; }
    
    private void Awake()
