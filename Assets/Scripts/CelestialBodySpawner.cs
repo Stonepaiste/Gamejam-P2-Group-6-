@@ -258,8 +258,8 @@ public class CelestialBodySpawner : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        this.transform.position += new Vector3(-movementSpeed, 0, 0);
+        this.transform.position += new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
     }
 }
