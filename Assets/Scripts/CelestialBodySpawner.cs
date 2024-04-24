@@ -11,9 +11,9 @@ public class CelestialBodySpawner : MonoBehaviour
     [SerializeField]
     private float movementSpeed = 0.01f;
     [SerializeField]
-    private static int defaultCheeseAmount = 5;
+    private static int defaultCheeseAmount = 3;
     [SerializeField]
-    private static int defaultMeteoriteAmount = 7;
+    private static int defaultMeteoriteAmount = 2;
     [SerializeField]
     private static int defaultStinkyCheeseInterval= 9;
     
