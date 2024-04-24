@@ -132,6 +132,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
+      propertyPath: movementSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -6241308888288630995, guid: 542d8c62b214f564786cb9473b44ed48, type: 3}
       propertyPath: mapSections.Array.size
       value: 3
       objectReference: {fileID: 0}

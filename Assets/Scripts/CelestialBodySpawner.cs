@@ -9,6 +9,8 @@ public class CelestialBodySpawner : MonoBehaviour
     private GameObject meteoritePrefab, cheesePrefab, stinkyCheesePrefab;
     
     [SerializeField]
+    private float movementSpeed = 0.01f;
+    [SerializeField]
     private static int defaultCheeseAmount = 5;
     [SerializeField]
     private static int defaultMeteoriteAmount = 7;
@@ -43,11 +45,17 @@ public class CelestialBodySpawner : MonoBehaviour
     [Serializable]
     public class MapSection
     {
+        [Tooltip("Moves the sine wave along the x-axis")]
         public float wavePhase;
+        [Tooltip("Moves the sine wave along the y-axis")]
         public float waveOffset;
+        [Tooltip("Amplitude of the sine wave")]
         public float waveAmplitude;
+        [Tooltip("Denisity of cheeses")]
         public int cheeseAmount = 10;
+        [Tooltip("Density of meteorites")]
         public int meteoriteAmount = 10;
+        [Tooltip("Interval of stinky cheeses")]
         public int stinkyCheeseOccurrence = 1;
         public CelestialBodyRange meteoriteRange = new();
         public CelestialBodyRange cheeseRange = new();
@@ -84,13 +92,29 @@ public class CelestialBodySpawner : MonoBehaviour
             return $"Wave Phase: {wavePhase}, Wave Offset: {waveOffset}, Wave Amplitude: {waveAmplitude}, Cheese Amount: {cheeseAmount}, Meteorite Amount: {meteoriteAmount}, Stinky Cheese Occurrence: {stinkyCheeseOccurrence}, Meteorite Range: {meteoriteRange.min} - {meteoriteRange.max}, Cheese Range: {cheeseRange.min} - {cheeseRange.max}";
         }
     }
-
     
     [SerializeField]
     List<MapSection> mapSections = new();
     
 
-    void Start()
+    public void ClearAndSpawn()
+    {
+        List<GameObject> children = new List<GameObject>();
+        foreach (Transform child in transform)
+        {
+            children.Add(child.gameObject);
+            
+        }
+
+        foreach (GameObject child in children)
+        {
+            DestroyImmediate(child);
+        }
+        
+        Spawn();
+    }
+    
+    void Spawn()
     {
         float currentX = 0;
         foreach (MapSection mapSection in mapSections)
@@ -228,5 +252,10 @@ public class CelestialBodySpawner : MonoBehaviour
 
             currentX += Math.Max(mapSection.cheeseRange.max, mapSection.meteoriteRange.max);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        this.transform.position += new Vector3(-movementSpeed, 0, 0);
     }
 }
