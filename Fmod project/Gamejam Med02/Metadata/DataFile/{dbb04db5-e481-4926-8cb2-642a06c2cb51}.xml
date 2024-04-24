@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{dbb04db5-e481-4926-8cb2-642a06c2cb51}">
+		<property name="assetPath">
+			<value>Metadata/ParameterPresetFolder/{36ffec7a-fb1e-4c0e-b1bd-9a7608310fcc}.xml</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4885f75e-2442-4084-bd9e-a2d590fd1c0e}</destination>
+		</relationship>
+	</object>
+</objects>

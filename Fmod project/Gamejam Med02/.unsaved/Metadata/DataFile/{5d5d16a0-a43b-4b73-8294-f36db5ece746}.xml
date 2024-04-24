@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{5d5d16a0-a43b-4b73-8294-f36db5ece746}">
+		<property name="assetPath">
+			<value>Metadata/AudioFile/{ba5858ca-421c-4ca0-a006-d05536a11587}.xml</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4885f75e-2442-4084-bd9e-a2d590fd1c0e}</destination>
+		</relationship>
+	</object>
+</objects>
