@@ -65,19 +65,19 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -887928611
-      Data2: 1340010766
-      Data3: -936424811
-      Data4: -1264702691
-    Path: event:/CheesePickup
+      Data1: -1905917905
+      Data2: 1241566566
+      Data3: -1302199409
+      Data4: 2003440473
+    Path: event:/Astroid
   Event: 
-  PlayEvent: 1
+  PlayEvent: 11
   StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
-  Preload: 0
+  Preload: 1
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
+  OverrideAttenuation: 1
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 4
