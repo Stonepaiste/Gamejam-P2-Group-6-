@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             body.AddForce(new Vector3(0, 50, 0),ForceMode2D.Force);
-            Debug.Log("Mouse Clicked");
+            // Debug.Log("Mouse Clicked");
         }
         else if (Input.GetMouseButtonUp(0))
         {
