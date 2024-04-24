@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{d62ed345-5454-4718-a43e-c83971898f41}">
 		<property name="assetPath">
-			<value>Cheese ping.wav</value>
+			<value>Gamejam/Cheese ping.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

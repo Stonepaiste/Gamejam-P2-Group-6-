@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="EncodableAsset" id="{4271aecf-3afb-4631-b649-2023df47f222}">
+	<object class="EncodableAsset" id="{3cfa4b8c-401d-47e8-a542-16f56f6e7a7d}">
 		<property name="assetPath">
-			<value>Assets/Dialogue/</value>
+			<value>Gamejam/</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{4885f75e-2442-4084-bd9e-a2d590fd1c0e}</destination>

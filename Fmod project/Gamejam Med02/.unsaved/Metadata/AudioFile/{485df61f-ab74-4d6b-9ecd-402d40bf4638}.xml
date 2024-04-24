@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{485df61f-ab74-4d6b-9ecd-402d40bf4638}">
 		<property name="assetPath">
-			<value>Dialogue/CN/cn_goodbye.ogg</value>
+			<value>Assets/Dialogue/CN/cn_goodbye.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
