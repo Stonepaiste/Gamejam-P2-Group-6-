@@ -419,6 +419,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 706873027535611222, guid: f2bf59770704a1c4cac4101c103a28b4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 706873027535611222, guid: f2bf59770704a1c4cac4101c103a28b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 706873027535611222, guid: f2bf59770704a1c4cac4101c103a28b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -461,6 +469,14 @@ PrefabInstance:
     - target: {fileID: 8732396851881632974, guid: f2bf59770704a1c4cac4101c103a28b4, type: 3}
       propertyPath: m_Name
       value: Cheese
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853169377229259145, guid: f2bf59770704a1c4cac4101c103a28b4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853169377229259145, guid: f2bf59770704a1c4cac4101c103a28b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
