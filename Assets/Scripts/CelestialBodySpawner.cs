@@ -278,6 +278,4 @@ public class CelestialBodySpawner : MonoBehaviour
         cheeseRoot.transform.position += new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
         meteoriteRoot.transform.position += new Vector3(-movementSpeed * Time.deltaTime * 2, 0, 0);
     }
-    
-    
 }
