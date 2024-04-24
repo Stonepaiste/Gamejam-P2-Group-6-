@@ -96,8 +96,12 @@ public class CelestialBodySpawner : MonoBehaviour
     [SerializeField]
     List<MapSection> mapSections = new();
 
+    private GameObject cheeseRoot;
+    private GameObject meteoriteRoot;
     private void Awake()
     {
+        cheeseRoot = new GameObject("Cheeses");
+        meteoriteRoot = new GameObject("Meteorites");
         ClearAndSpawn();
     }
 
@@ -121,6 +125,16 @@ public class CelestialBodySpawner : MonoBehaviour
     void Spawn()
     {
         float currentX = 0;
+
+        if (Application.isPlaying)
+        {
+            cheeseRoot.transform.parent = transform;
+            cheeseRoot.transform.position = transform.position;
+            
+            meteoriteRoot.transform.parent = transform;
+            meteoriteRoot.transform.position = transform.position;
+        }
+        
         foreach (MapSection mapSection in mapSections)
         {
             mapSection.Initialize();
@@ -143,7 +157,6 @@ public class CelestialBodySpawner : MonoBehaviour
             //       Currently, the meteorites are generated based on the cheeses, which is not ideal.
             // BUG: Meteorites are not created in sections without cheeses.
             
-            
             // Spawn cheeses alone the x-axis following a sine wave
             for (float x = mapSection.cheeseRange.min + currentX; x < mapSection.cheeseRange.max + currentX; x += 1/cheeseDensity)
             {
@@ -164,15 +177,15 @@ public class CelestialBodySpawner : MonoBehaviour
                 GameObject cheese;
                 if (stinkyCheeseCounter >= stinkyCheeseInterval)
                 {
-                    cheese = Instantiate(stinkyCheesePrefab, transform.position + position, rotation);
+                    cheese = Instantiate(stinkyCheesePrefab, cheeseRoot.transform.position + position, rotation);
                     stinkyCheeseCounter = 0;
                     stinkyCheeseInterval = Random.Range((int)(mapSection.stinkyCheeseOccurrence * .5), mapSection.stinkyCheeseOccurrence * 2);
                 }
                 else
                 {
-                    cheese = Instantiate(cheesePrefab, transform.position + position, rotation);
+                    cheese = Instantiate(cheesePrefab, cheeseRoot.transform.position + position, rotation);
                 }
-                cheese.transform.parent = transform;
+                cheese.transform.parent = cheeseRoot.transform;
                 
                 wavePhases.Add(wavePhase);
                 waveOffsets.Add(waveOffset);
@@ -220,8 +233,8 @@ public class CelestialBodySpawner : MonoBehaviour
                     position = new Vector3(x, meteoriteOffset, 0);
                 }
                 
-                GameObject meteorite = Instantiate(meteoritePrefab, transform.position + position, rotation);
-                meteorite.transform.parent = transform;
+                GameObject meteorite = Instantiate(meteoritePrefab, meteoriteRoot.transform.position + position, rotation);
+                meteorite.transform.parent = meteoriteRoot.transform;
                 
                 
                 // DEBUG - Display distances between meteorites and cheeses
@@ -260,6 +273,9 @@ public class CelestialBodySpawner : MonoBehaviour
 
     private void Update()
     {
-        this.transform.position += new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
+        // this.transform.position += new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
+        
+        cheeseRoot.transform.position += new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
+        meteoriteRoot.transform.position += new Vector3(-movementSpeed * Time.deltaTime * 2, 0, 0);
     }
 }

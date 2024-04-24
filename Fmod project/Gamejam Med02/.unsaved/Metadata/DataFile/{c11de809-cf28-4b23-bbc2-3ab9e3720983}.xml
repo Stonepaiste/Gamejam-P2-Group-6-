@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{c11de809-cf28-4b23-bbc2-3ab9e3720983}">
+		<property name="assetPath">
+			<value>Metadata/Snapshot/{e305a498-2b18-461d-b35c-6eaea45fafd6}.xml</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4885f75e-2442-4084-bd9e-a2d590fd1c0e}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{614cba67-6ec7-4469-8384-02c1d827a75c}">
+		<property name="assetPath">
+			<value>Metadata/Event/{249ac74e-6ea4-4648-81da-206c4e22b801}.xml</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4885f75e-2442-4084-bd9e-a2d590fd1c0e}</destination>
+		</relationship>
+	</object>
+</objects>
