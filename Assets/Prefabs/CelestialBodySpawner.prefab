@@ -47,7 +47,14 @@ MonoBehaviour:
   meteoritePrefab: {fileID: 4007447909911146327, guid: 3d4e1593456e69243873ae1e3acf9e77, type: 3}
   cheesePrefab: {fileID: 8732396851881632974, guid: f2bf59770704a1c4cac4101c103a28b4, type: 3}
   stinkyCheesePrefab: {fileID: 8732396851881632974, guid: 342f2a042cdc2a943a9b7b2982b4fab3, type: 3}
-  movementSpeed: 2
-  meteoriteOffsetMax: 6
-  meteoriteOffsetMin: -3
+  cheeseSpeed: 2
+  meteoriteSpeed: 4
+  defaultCheeseAmount: 5
+  defaultMeteoriteAmount: 5
+  defaultStinkyCheeseInterval: 5
+  cheesePaddingY: 2
+  meteoritePaddingY: 1
+  moonPaddingY: 1.5
+  randomizeMeteorites: 1
+  randomizeCheeses: 1
   mapSections: []
