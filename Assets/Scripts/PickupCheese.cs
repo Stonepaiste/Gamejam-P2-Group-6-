@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PickupCheese : MonoBehaviour
 {
+    
     public int cheeseCounter = 0;
     [SerializeField] float fallAmount = 0f;
     [SerializeField] float fallSpeed = 0f;
@@ -43,6 +45,7 @@ public class PickupCheese : MonoBehaviour
     void Pickup()
     {
         cheeseCounter++;
+        AudioManager.instance.playOneShot(FmodEvents.instance.cheesePickupSFX, this.transform.position);
         Debug.Log("Cheese Counter: " + cheeseCounter);
     }
 
