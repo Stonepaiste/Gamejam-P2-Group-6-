@@ -95,7 +95,11 @@ public class CelestialBodySpawner : MonoBehaviour
     
     [SerializeField]
     List<MapSection> mapSections = new();
-    
+
+    private void Awake()
+    {
+        ClearAndSpawn();
+    }
 
     public void ClearAndSpawn()
     {
