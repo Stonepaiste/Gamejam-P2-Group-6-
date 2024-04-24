@@ -8,6 +8,7 @@ public class PickupCheese : MonoBehaviour
     public int cheeseCounter = 0;
     [SerializeField] float fallAmount = 0f;
     [SerializeField] float fallSpeed = 0f;
+    [SerializeField] float shakeAmount = 0.6f;
     [SerializeField] bool isStinkyCheese = false;
 
     private void Awake()
@@ -28,9 +29,9 @@ public class PickupCheese : MonoBehaviour
             this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             this.gameObject.GetComponent<PlayerMovement>().enabled = false;
             fallSpeed = -2f;
-            //transform.position = new Vector3(transform.position.x, transform.position.y - fallSpeed * Time.deltaTime, transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y + fallSpeed * Time.deltaTime, transform.position.z);
             Physics.IgnoreLayerCollision(0, 1);
-            if (Input.acceleration.y < -0.5f)
+            if (Input.acceleration.x < -shakeAmount || Input.acceleration.x > shakeAmount || Input.acceleration.y < -shakeAmount || Input.acceleration.y > shakeAmount)
             {
                 isStinkyCheese = false;
                 this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
