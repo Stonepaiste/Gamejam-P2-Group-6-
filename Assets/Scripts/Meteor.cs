@@ -19,6 +19,7 @@ public class Meteor : MonoBehaviour
             Liv.DecreaseFillLevel(1f);
             playerVFX.AlarmLights();
             Debug.Log("oh no!");
+            AudioManager.instance.playOneShot(FmodEvents.instance.astroidHit, this.transform.position);
         }
     }
 }
