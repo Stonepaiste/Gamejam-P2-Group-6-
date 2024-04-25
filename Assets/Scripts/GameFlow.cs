@@ -10,7 +10,7 @@ public class GameFlow : MonoBehaviour
     public static GameFlow Instance = null;
     
     [SerializeField] float carterStopPositionY = 0f;
-    [SerializeField] float carterStopDistance = 0f;
+    [SerializeField] float carterStopDistance = 0.1f;
     [SerializeField] float waitForPlayerMovementTime = 3;
     
     private bool _hasEnded = false;
@@ -19,6 +19,9 @@ public class GameFlow : MonoBehaviour
     private float PlayerMovementRemainingTime = 0;
 
     private MoonCrater _closestCrater;
+    
+    private int patchedCraters = 0;
+    private int totalCraters = 0;
     
     [SerializeField] private GameObject countdownTimer;
     [SerializeField] private GameObject gameWinScreen;
@@ -51,6 +54,7 @@ public class GameFlow : MonoBehaviour
 
     private void Start()
     {
+        totalCraters = CraterGenerator.Instance.numberOfCraters;
         Begin();
     }
 
@@ -59,6 +63,9 @@ public class GameFlow : MonoBehaviour
         Debug.Log("Game Start!");
         _hasStoppedAtCrater = false;
         _hasEnded = false;
+        var vector3 = PlayerMovement.Instance.gameObject.transform.position;
+        vector3.y = 0;
+        PlayerMovement.Instance.gameObject.transform.position = vector3;
         Liv.Instance.Initiate();
         PlayerVFX.Instance.Initiate();
         PickupCheese.Instance.ResetCheese();
@@ -79,8 +86,6 @@ public class GameFlow : MonoBehaviour
         Debug.Log("Game Stop!");
         CelestialBodySpawner.Instance.StopSpawning();
         _hasEnded = true;
-        gameUI.SetActive(false);
-        gameWinScreen.SetActive(true);
     }
     
     void StopAtCrater()
@@ -139,7 +144,7 @@ public class GameFlow : MonoBehaviour
         {
             PlayerMovementRemainingTime -= Time.deltaTime;
             Debug.Log("Waiting for player movement: " + (int)PlayerMovementRemainingTime);
-            countdownTimer.GetComponent<TMPro.TextMeshProUGUI>().text = ((int)PlayerMovementRemainingTime).ToString();
+            countdownTimer.GetComponent<TMPro.TextMeshProUGUI>().text = ((int)PlayerMovementRemainingTime + 1).ToString();
             yield return null;
         }
         countdownTimer.SetActive(false);
@@ -164,8 +169,18 @@ public class GameFlow : MonoBehaviour
         {
             StopAtCrater();
         }
-    }
 
+        if (patchedCraters == totalCraters)
+        {
+            winGame();
+        }
+    }
+    
+    private void winGame()
+    {
+        gameWinScreen.SetActive(true);
+        restartButton.SetActive(true);
+    }
     public void ReloadScene()
     {
         SceneManager.LoadScene(1);
