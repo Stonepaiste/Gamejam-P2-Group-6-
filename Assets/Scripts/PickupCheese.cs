@@ -23,13 +23,15 @@ public class PickupCheese : MonoBehaviour
 
     private void Update()
     {
-        StopMovement();
+    
+        
     }
 
     private void StopMovement()
     {  
         if (isStinkyCheese)
         {
+            AudioManager.instance.playOneShot(FmodEvents.instance.badCheese, this.transform.position);
             this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             this.gameObject.GetComponent<PlayerMovement>().enabled = false;
             fallSpeed = -2f;
@@ -72,6 +74,7 @@ public class PickupCheese : MonoBehaviour
         if (collision.gameObject.tag == "StinkyCheese")
         {
             isStinkyCheese = true;
+            StopMovement();
             Destroy(collision.gameObject);
         }
     }
