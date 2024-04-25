@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: ea55d136b74306748b1fedce6d3c0db0
+    path: Assets/Scenes/Phillip/Phillip.unity
+    guid: 28907bb3ad4ee49f0be6f9bea444b112
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 874ec3a050cc7b645bdebb538b7ac3c0, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 13d4592a36dfd944f9730fad1b1f3911, type: 2}
