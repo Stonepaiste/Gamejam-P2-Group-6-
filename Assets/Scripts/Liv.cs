@@ -9,13 +9,13 @@ public class Liv : MonoBehaviour
     [SerializeField] public Image livSpriteRenderer;
     public float maxFillLevel = 3f;
     public float fillLevel;
-    death death;
+    PlayerVFX playerVFX;
 
     void Start()
     {
         fillLevel = maxFillLevel;
         UpdateLivSprite();
-        death = FindObjectOfType<death>();
+        playerVFX = FindObjectOfType<PlayerVFX>();
     }
 
     public void DecreaseFillLevel(float amount)
@@ -24,7 +24,8 @@ public class Liv : MonoBehaviour
         if (fillLevel <= 0)
         {
             fillLevel = 0;
-            death.Die();
+            playerVFX.Die();
+            GameFlow.instance.GameOver();
         }
         UpdateLivSprite();
     }
