@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     private EventInstance musicEventInstance;
     private List<EventInstance> eventInstances;
     // Store the EventInstance for the spaceship lift sound
-    private EventInstance spaceshipLiftInstance;
+    //private EventInstance spaceshipLiftInstance;
     
 
     private void Awake()
@@ -46,27 +46,27 @@ public class AudioManager : MonoBehaviour
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
         // Create an EventInstance and start it
-        spaceshipLiftInstance = RuntimeManager.CreateInstance(sound);
-        spaceshipLiftInstance.set3DAttributes(RuntimeUtils.To3DAttributes(worldPos));
-        spaceshipLiftInstance.start();
+        //spaceshipLiftInstance = RuntimeManager.CreateInstance(sound);
+        //spaceshipLiftInstance.set3DAttributes(RuntimeUtils.To3DAttributes(worldPos));
+        //spaceshipLiftInstance.start();
         
     }
     
-    public void stopSpaceshipLiftSound()
-    {
+   // public void stopSpaceshipLiftSound()
+    //{
         //  check if the Spaceshipsound is playimg before trying to stop it. 
-        if (spaceshipLiftInstance.isValid())
-        {
-            spaceshipLiftInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        }
+      //  if (spaceshipLiftInstance.isValid())
+        //{
+          //  spaceshipLiftInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        //}
 
-        {
-            spaceshipLiftInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            spaceshipLiftInstance.release();
+        //{
+          //  spaceshipLiftInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            //spaceshipLiftInstance.release();
             
-        }
+        //}
        
-    }
+    //}
     
     public EventInstance CreatInstance(EventReference eventReference)
     {
