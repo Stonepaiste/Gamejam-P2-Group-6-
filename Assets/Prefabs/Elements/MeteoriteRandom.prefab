@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 5281966616784591074}
   - component: {fileID: 2940339430685801328}
   - component: {fileID: 8949777368166974501}
+  - component: {fileID: 4648794616157693317}
   m_Layer: 0
   m_Name: MeteoriteRandom
   m_TagString: Untagged
@@ -215,11 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldRotate: 1
-  maxRotateSpeed: 100
-  shouldMove: 1
-  moveScale: 0.3
-  randomRate: 0
   CollisionTag: 
   EventReference:
     Guid:
@@ -239,3 +235,22 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 1
   OverrideMaxDistance: 4
+--- !u!114 &4648794616157693317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007447909911146327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317e6f026484c414bb39d87e506c17b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldRotate: 1
+  maxRotateSpeed: 100
+  shouldMoveY: 1
+  shouldMoveX: 0
+  shouldJitter: 0
+  moveScale: 0.3
+  moveRate: 0

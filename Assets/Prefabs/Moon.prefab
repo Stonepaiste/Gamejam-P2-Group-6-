@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 452d4509a19d65949998828cf4fb4a86, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b80b52c7c3d2be14e9719efb35a5d880, type: 3}
   m_Color: {r: 0.9748427, g: 0.9613435, b: 0.8001067, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,7 +106,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3365750355551244466}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -131,6 +131,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.26997566, y: 0.7649231}
+  m_Offset: {x: 0.06, y: -0.06}
   serializedVersion: 2
-  m_Radius: 17.65476
+  m_Radius: 18.3
