@@ -38,6 +38,7 @@ public class PlayerVFX : MonoBehaviour
     
     public void Initiate()
     {
+        _isDead = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(LoopLights());
     }
