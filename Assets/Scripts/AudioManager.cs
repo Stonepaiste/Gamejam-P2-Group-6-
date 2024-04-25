@@ -8,7 +8,7 @@ using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
+    public static AudioManager instance { get; private set; }
     private EventInstance _musicEventInstance;
     private List<EventInstance> _eventInstances;
     // Store the EventInstance for the spaceship lift sound
@@ -17,20 +17,20 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance !=null)
+        if (instance !=null)
         {
             Debug.LogError("Found more than one AudioManager in the scene");
         }
         
 
-        Instance = this;
+        instance = this;
         
         _eventInstances = new List<EventInstance>();
     }
 
     private void Start()
     {
-        InitilazeMusic(FmodEvents.Instance.Music);
+        InitilazeMusic(FmodEvents.instance.music);
         
     }
     
