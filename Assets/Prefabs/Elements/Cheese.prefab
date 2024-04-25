@@ -93,9 +93,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldRotate: 1
   maxRotateSpeed: 25
-  shouldMove: 1
+  shouldMoveY: 1
+  shouldMoveX: 0
+  shouldJitter: 0
   moveScale: 0.2
-  randomRate: 0
+  moveRate: 0
 --- !u!1 &9042783225233624130
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +170,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 01865d5ad7c3c084d8908ece8b00f67d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
