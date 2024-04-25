@@ -2269,6 +2269,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5331362358448934062, guid: 2e59f11e4570e4845b684abe6f2efc5a, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].value
+      value: 
+      objectReference: {fileID: 861731433}
+    - target: {fileID: 5331362358448934062, guid: 2e59f11e4570e4845b684abe6f2efc5a, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].value
+      value: 
+      objectReference: {fileID: 1053507857612105305}
     - target: {fileID: 8270372447500394001, guid: 2e59f11e4570e4845b684abe6f2efc5a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2276,10 +2284,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8270372447500394001, guid: 2e59f11e4570e4845b684abe6f2efc5a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2129387899}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e59f11e4570e4845b684abe6f2efc5a, type: 3}
 --- !u!1 &1931263980
 GameObject:
@@ -2816,39 +2821,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &2129387890 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8270372447500394001, guid: 2e59f11e4570e4845b684abe6f2efc5a, type: 3}
-  m_PrefabInstance: {fileID: 1895991658}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2129387896 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1960069775181752127, guid: 2e59f11e4570e4845b684abe6f2efc5a, type: 3}
-  m_PrefabInstance: {fileID: 1895991658}
-  m_PrefabAsset: {fileID: 0}
---- !u!320 &2129387899
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129387890}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
-  m_InitialState: 0
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 6293053957215555158, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
-    value: {fileID: 2129387896}
-  - key: {fileID: 6399352958965194300, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
-    value: {fileID: 861731433}
-  - key: {fileID: -7310548900829826874, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
-    value: {fileID: 1053507857612105305}
-  m_ExposedReferences:
-    m_References: []
 --- !u!1001 &163279427618365677
 PrefabInstance:
   m_ObjectHideFlags: 0

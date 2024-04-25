@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 6927066909903357785}
   - component: {fileID: 5520346033478414927}
   - component: {fileID: 5258439365980629068}
+  - component: {fileID: 5331362358448934062}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -119,7 +120,8 @@ Transform:
   m_LocalPosition: {x: -6, y: -0.08, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: [{fileID: 9037053572354001059}]
+  m_Children:
+  - {fileID: 9037053572354001059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4001519651287662810
@@ -171,7 +173,7 @@ SpriteRenderer:
   m_Size: {x: 8.83, y: 7.8124804}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1960069775181752127
@@ -195,19 +197,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5258439365980629068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8270372447500394001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 549c9609660570242b454d9abb25da4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canPlaySound: 0
 --- !u!50 &6906732770297215591
 Rigidbody2D:
   serializedVersion: 4
@@ -235,47 +224,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!114 &6927066909903357785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8270372447500394001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0e479632da92948b104e39f7c95f76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLightsSprite:
-  - {fileID: -1805242963, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
-  - {fileID: -942527726, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
-  - {fileID: -1685236483, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
-  - {fileID: -1886694466, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
-  - {fileID: 1188517815, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
-  - {fileID: -320265100, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
-  playerAlarmLightsSprites:
-  - {fileID: 856985955, guid: bca1294416894e04a8308feec4e7be63, type: 3}
-  - {fileID: -881518917, guid: bca1294416894e04a8308feec4e7be63, type: 3}
-  spriteRenderer: {fileID: 0}
-  deadMouse: {fileID: 21300000, guid: 0501f43f58a816e46b68248ac3d0ac4a, type: 3}
---- !u!114 &5520346033478414927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8270372447500394001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a34a059ae8e4baf4491dc50fdff92d78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cheeseCounter: 0
-  fallAmount: 0.01
-  fallSpeed: -1
-  shakeAmount: 0.6
-  isStinkyCheese: 0
 --- !u!61 &7536685933304313012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -321,3 +269,81 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.144676, y: 5.0282946}
   m_EdgeRadius: 0
+--- !u!114 &6927066909903357785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270372447500394001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0e479632da92948b104e39f7c95f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLightsSprite:
+  - {fileID: -1805242963, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  - {fileID: -942527726, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  - {fileID: -1685236483, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  - {fileID: -1886694466, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  - {fileID: 1188517815, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  - {fileID: -320265100, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  playerAlarmLightsSprites:
+  - {fileID: 856985955, guid: bca1294416894e04a8308feec4e7be63, type: 3}
+  - {fileID: -881518917, guid: bca1294416894e04a8308feec4e7be63, type: 3}
+  spriteRenderer: {fileID: 0}
+  deadMouse: {fileID: 21300000, guid: 0501f43f58a816e46b68248ac3d0ac4a, type: 3}
+--- !u!114 &5520346033478414927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270372447500394001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a34a059ae8e4baf4491dc50fdff92d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheeseCounter: 0
+  fallAmount: 0.01
+  fallSpeed: -1
+  shakeAmount: 0.6
+  isStinkyCheese: 0
+  canPickupCheese: 1
+--- !u!114 &5258439365980629068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270372447500394001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549c9609660570242b454d9abb25da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canPlaySound: 0
+--- !u!320 &5331362358448934062
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270372447500394001}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 6293053957215555158, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
+    value: {fileID: 1960069775181752127}
+  - key: {fileID: 6399352958965194300, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7310548900829826874, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
