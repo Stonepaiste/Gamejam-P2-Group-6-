@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carterStopPositionY: 0
-  carterStopDistance: 0
+  carterStopDistance: 7.8
   waitForPlayerMovementTime: 3
   countdownTimer: {fileID: 0}
   gameWinScreen: {fileID: 0}
