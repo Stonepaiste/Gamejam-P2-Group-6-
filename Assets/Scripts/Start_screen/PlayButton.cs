@@ -7,9 +7,10 @@ public class PlayButton : MonoBehaviour
 {
     public void GoToIntroScene()
     {
-        SceneManager.LoadScene("IntroScene");
+        //SceneManager.LoadScene("IntroScene");
+        SceneManager.LoadScene(1);        //Scene index i stedet
         Debug.Log("You have clicked");
 
-       // SceneManager.LoadScene(2);        //Scene index i stedet
+ 
     }
 }

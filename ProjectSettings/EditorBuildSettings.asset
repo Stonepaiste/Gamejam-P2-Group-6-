@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Nathalie/SampleScene.unity
+    guid: 10ce375bfb9c74e8da09dfabb7e77072
+  - enabled: 1
     path: Assets/Scenes/Phillip/Phillip.unity
     guid: 28907bb3ad4ee49f0be6f9bea444b112
   m_configObjects:
