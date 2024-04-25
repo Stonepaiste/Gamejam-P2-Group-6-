@@ -6,36 +6,18 @@ using UnityEngine.UI;
 public class CheeseMeter : MonoBehaviour
 {
     public Image cheeseBar;
-    int cheeseCounter;
+    float cheeseFill;
 
-    void Start()
+    public void GetCheese()
     {
-        cheeseCounter = FindObjectOfType<PickupCheese>().cheeseCounter;
+        Debug.Log(cheeseBar.fillAmount + "got cheese");
+        cheeseFill = 1f / 9f;
+        cheeseBar.fillAmount += cheeseFill;
     }
 
-    
-    void Update()
+    public void ResetCheese()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            getCheese(10);
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            loseCheese(100);
-        }
-    }
-
-    public void getCheese(int Cheese)
-    {
-        cheeseCounter += Cheese;
-        cheeseBar.fillAmount = cheeseCounter/100f;
-    }
-
-    public void loseCheese(int Cheese)
-    {
-        cheeseCounter -= Cheese;
-        cheeseBar.fillAmount = cheeseCounter/100f;
+        Debug.Log(cheeseBar.fillAmount + "lost cheese");
+        cheeseBar.fillAmount = 0;
     }
 }
