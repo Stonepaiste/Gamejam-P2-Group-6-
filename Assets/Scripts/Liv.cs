@@ -7,7 +7,7 @@ public class Liv : MonoBehaviour
 {
 
     [SerializeField] public Image livSpriteRenderer;
-    public int maxFillLevel = 3;
+    public float maxFillLevel = 3f;
     public float fillLevel;
     death death;
 
@@ -21,7 +21,7 @@ public class Liv : MonoBehaviour
     public void DecreaseFillLevel(float amount)
     {
         fillLevel -= amount;
-        if (fillLevel < 0)
+        if (fillLevel <= 0)
         {
             fillLevel = 0;
             death.Die();

@@ -14,7 +14,7 @@ public class Meteor : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Meteor"))
+        if (collision.gameObject.tag == "Player")
         {
             Liv.DecreaseFillLevel(1f);
             Debug.Log("oh no!");

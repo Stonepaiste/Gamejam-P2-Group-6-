@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5281966616784591074}
-  - component: {fileID: -580415964611879073}
   m_Layer: 0
   m_Name: Meteorite1
   m_TagString: Meteor
@@ -33,18 +32,6 @@ Transform:
   - {fileID: 1746196289442206960}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-580415964611879073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4007447909911146327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1f5014c85784f8492a8ca27278c040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9184094316809300255
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,6 +43,7 @@ GameObject:
   - component: {fileID: 1746196289442206960}
   - component: {fileID: 6363170568436718892}
   - component: {fileID: 1100938021182780273}
+  - component: {fileID: 5831245223150782395}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Meteor
@@ -165,3 +153,15 @@ CircleCollider2D:
   m_Offset: {x: -0.34404993, y: 1.0009015}
   serializedVersion: 2
   m_Radius: 7.705773
+--- !u!114 &5831245223150782395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9184094316809300255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1f5014c85784f8492a8ca27278c040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
