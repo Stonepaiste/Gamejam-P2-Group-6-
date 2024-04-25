@@ -11,6 +11,17 @@ public class RandomMeteorite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        List<GameObject> children = new List<GameObject>();
+        foreach (Transform child in transform)
+        {
+            children.Add(child.gameObject);
+        }
+
+        foreach (GameObject child in children)
+        {
+            DestroyImmediate(child);
+        }
+        
         Instantiate(meteorites[Random.Range(0, meteorites.Length)], transform.position, Quaternion.identity, this.transform);
     }
 }
