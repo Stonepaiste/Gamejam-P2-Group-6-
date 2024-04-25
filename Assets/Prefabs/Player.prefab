@@ -15,9 +15,8 @@ GameObject:
   - component: {fileID: 6927066909903357785}
   - component: {fileID: 5520346033478414927}
   - component: {fileID: 7536685933304313012}
-  - component: {fileID: 9207727897563158033}
-  - component: {fileID: 8797929374190877741}
-  m_Layer: 0
+  - component: {fileID: 3621876441440586801}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -217,7 +216,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.871382, y: 6.00754}
   m_EdgeRadius: 0
---- !u!114 &9207727897563158033
+--- !u!114 &3621876441440586801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,16 +246,3 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8797929374190877741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8270372447500394001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81afb0aec8e2e40d6a945afdf03364cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deadMouse: {fileID: 21300000, guid: 0501f43f58a816e46b68248ac3d0ac4a, type: 3}
