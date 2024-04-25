@@ -16,11 +16,12 @@ public class Liv : MonoBehaviour
         UpdateLivSprite();
     }
 
-    void Update()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (collision.gameObject.CompareTag("Meteor"))
         {
             DecreaseFillLevel(1f);
+            Debug.Log("oh no!");
         }
     }
 
