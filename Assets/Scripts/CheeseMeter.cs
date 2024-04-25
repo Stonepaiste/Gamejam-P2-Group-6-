@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthManager : MonoBehaviour
+public class CheeseMeter : MonoBehaviour
 {
     public Image cheeseBar;
-    public float cheeseAmount=0f;
+    int cheeseCounter;
+
     void Start()
     {
-        
+        cheeseCounter = FindObjectOfType<PickupCheese>().cheeseCounter;
     }
 
     
@@ -26,15 +27,15 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public void getCheese(float Cheese)
+    public void getCheese(int Cheese)
     {
-        cheeseAmount+=Cheese;
-        cheeseBar.fillAmount = cheeseAmount/100f;
+        cheeseCounter += Cheese;
+        cheeseBar.fillAmount = cheeseCounter/100f;
     }
 
-    public void loseCheese(float Cheese)
+    public void loseCheese(int Cheese)
     {
-        cheeseAmount-=Cheese;
-        cheeseBar.fillAmount = cheeseAmount/100f;
+        cheeseCounter -= Cheese;
+        cheeseBar.fillAmount = cheeseCounter/100f;
     }
 }
