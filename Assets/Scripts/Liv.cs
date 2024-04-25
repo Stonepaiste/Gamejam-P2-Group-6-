@@ -24,8 +24,7 @@ public class Liv : MonoBehaviour
 
     void Start()
     {
-        FillLevel = MaxFillLevel;
-        UpdateLivSprite();
+        Initiate();
     }
 
     public void Initiate()

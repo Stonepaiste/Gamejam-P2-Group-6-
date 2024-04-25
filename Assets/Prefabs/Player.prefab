@@ -87,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5258439365980629068
@@ -118,7 +118,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -150,8 +150,8 @@ MonoBehaviour:
   - {fileID: 1188517815, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
   - {fileID: -320265100, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
   playerAlarmLightsSprites:
-  - {fileID: 21300000, guid: ebbc528c62993eb4b97fb4fa6f8a273c, type: 3}
-  - {fileID: 21300000, guid: b87de3a21aca1fc4db849cd3b92133b8, type: 3}
+  - {fileID: 856985955, guid: bca1294416894e04a8308feec4e7be63, type: 3}
+  - {fileID: -881518917, guid: bca1294416894e04a8308feec4e7be63, type: 3}
   spriteRenderer: {fileID: 0}
   deadMouse: {fileID: 21300000, guid: 0501f43f58a816e46b68248ac3d0ac4a, type: 3}
 --- !u!114 &5520346033478414927

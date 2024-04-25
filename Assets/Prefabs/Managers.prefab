@@ -88,34 +88,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb9bd885a69247b1b35a6b148bb8854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CheesePickupSfx>k__BackingField:
+  <cheesePickupSFX>k__BackingField:
     Guid:
       Data1: -887928611
       Data2: 1340010766
       Data3: -936424811
       Data4: -1264702691
     Path: event:/CheesePickup
-  <Music>k__BackingField:
+  <music>k__BackingField:
     Guid:
       Data1: -547300041
       Data2: 1232316349
       Data3: 1090227611
       Data4: 1105743655
     Path: event:/BackgroundMusic
-  <SpaceShipLift>k__BackingField:
+  <spaceShipLift>k__BackingField:
     Guid:
-      Data1: 1068470831
-      Data2: 1093681898
-      Data3: -880244087
-      Data4: -1833703714
-    Path: event:/Rumskib
-  <BadCheese>k__BackingField:
+      Data1: -887928611
+      Data2: 1340010766
+      Data3: -936424811
+      Data4: -1264702691
+    Path: event:/CheesePickup
+  <badCheese>k__BackingField:
     Guid:
       Data1: 574443526
       Data2: 1215813889
       Data3: 2095303851
       Data4: -843738672
     Path: event:/Badcheese
+  <astroidHit>k__BackingField:
+    Guid:
+      Data1: -832260231
+      Data2: 1108826703
+      Data3: -1854976605
+      Data4: -1508899127
+    Path: event:/AstroidHit
 --- !u!1 &8151344482030955051
 GameObject:
   m_ObjectHideFlags: 0

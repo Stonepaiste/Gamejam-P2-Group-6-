@@ -12,6 +12,8 @@ public class PickupCheese : MonoBehaviour
     [SerializeField] float fallSpeed = 0f;
     [SerializeField] float shakeAmount = 0.6f;
     [SerializeField] bool isStinkyCheese = false;
+    
+    public bool canPickupCheese = true; 
 
     CheeseMeter _cheeseMeter;
 
@@ -31,12 +33,7 @@ public class PickupCheese : MonoBehaviour
         cheeseCounter = 0;
         _cheeseMeter = FindObjectOfType<CheeseMeter>();
     }
-
-    private void Update()
-    {
     
-        
-    }
 
     private void StopMovement()
     {  
@@ -59,13 +56,16 @@ public class PickupCheese : MonoBehaviour
 
     void Pickup()
     {
-        cheeseCounter++;
-        AudioManager.instance.playOneShot(FmodEvents.instance.cheesePickupSFX, this.transform.position);
-        Debug.Log("Cheese Counter: " + cheeseCounter);
-        _cheeseMeter.GetCheese();
-        if (cheeseCounter >= 9)
+        if (canPickupCheese)
         {
-            GameFlow.Instance.GameWin();
+            cheeseCounter++;
+            AudioManager.instance.playOneShot(FmodEvents.instance.cheesePickupSFX, this.transform.position);
+            Debug.Log("Cheese Counter: " + cheeseCounter);
+            _cheeseMeter.GetCheese();
+            if (cheeseCounter >= 9)
+            {
+                GameFlow.Instance.GameWin();
+            }
         }
     }
     
