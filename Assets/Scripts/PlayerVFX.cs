@@ -33,9 +33,13 @@ public class PlayerVFX : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Initiate();
+    }
+    
+    public void Initiate()
+    {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
-       StartCoroutine(LoopLights());
+        StartCoroutine(LoopLights());
     }
 
     IEnumerator LoopLights()
