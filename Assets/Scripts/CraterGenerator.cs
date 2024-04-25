@@ -6,12 +6,12 @@ using Random = UnityEngine.Random;
 [ExecuteInEditMode]
 public class CraterGenerator : MonoBehaviour
 {
-    public static CraterGenerator instance = null;
+    public static CraterGenerator Instance = null;
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -94,12 +94,13 @@ public class CraterGenerator : MonoBehaviour
     // Get closest crater to the right of a point and return the crater and the distance
     public (MoonCrater, float) GetClosestCraterRight(Vector3 point)
     {
-        MoonCrater[] craters = instance.GetComponentsInChildren<MoonCrater>();
+        MoonCrater[] craters = Instance.GetComponentsInChildren<MoonCrater>();
         MoonCrater closestCrater = null;
         float closestDistance = float.MaxValue;
         foreach (MoonCrater crater in craters)
         {
-            if (crater.transform.position.x > point.x && crater.isPatched == false)
+            Debug.Log("point" + point.y + "crater" + crater.transform.position.y);
+            if (crater.transform.position.x > point.x && crater.transform.position.y > -5 && crater.isPatched == false)
             {
                 // float distance = Vector3.Distance(point, crater.transform.position);
                 float distance = Mathf.Abs(point.x - crater.transform.position.x);

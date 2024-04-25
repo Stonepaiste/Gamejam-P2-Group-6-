@@ -8,37 +8,37 @@ using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance { get; private set; }
-    private EventInstance musicEventInstance;
-    private List<EventInstance> eventInstances;
+    public static AudioManager Instance { get; private set; }
+    private EventInstance _musicEventInstance;
+    private List<EventInstance> _eventInstances;
     // Store the EventInstance for the spaceship lift sound
     //private EventInstance spaceshipLiftInstance;
     
 
     private void Awake()
     {
-        if (instance !=null)
+        if (Instance !=null)
         {
             Debug.LogError("Found more than one AudioManager in the scene");
         }
         
 
-        instance = this;
+        Instance = this;
         
-        eventInstances = new List<EventInstance>();
+        _eventInstances = new List<EventInstance>();
     }
 
     private void Start()
     {
-        InitilazeMusic(FmodEvents.instance.music);
+        InitilazeMusic(FmodEvents.Instance.Music);
         
     }
     
     // Creating Music EventInstance
     private void InitilazeMusic(EventReference musicEventReference)
     {
-        musicEventInstance = CreatInstance(musicEventReference);
-        musicEventInstance.start();
+        _musicEventInstance = CreatInstance(musicEventReference);
+        _musicEventInstance.start();
     }
     
     
@@ -71,7 +71,7 @@ public class AudioManager : MonoBehaviour
     public EventInstance CreatInstance(EventReference eventReference)
     {
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
-        eventInstances.Add(eventInstance);
+        _eventInstances.Add(eventInstance);
         return eventInstance;
         
     }
@@ -80,7 +80,7 @@ public class AudioManager : MonoBehaviour
 
     private void Cleanup()
     {
-        foreach (EventInstance eventInstance in eventInstances)
+        foreach (EventInstance eventInstance in _eventInstances)
         {
          
             eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);

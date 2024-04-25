@@ -6,20 +6,20 @@ using UnityEngine.InputSystem;
 
 public class PickupCheese : MonoBehaviour
 {
-    public static PickupCheese instance = null;
+    public static PickupCheese Instance = null;
     public int cheeseCounter = 0;
     [SerializeField] float fallAmount = 0f;
     [SerializeField] float fallSpeed = 0f;
     [SerializeField] float shakeAmount = 0.6f;
     [SerializeField] bool isStinkyCheese = false;
 
-    CheeseMeter cheeseMeter;
+    CheeseMeter _cheeseMeter;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -29,7 +29,7 @@ public class PickupCheese : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         
         cheeseCounter = 0;
-        cheeseMeter = FindObjectOfType<CheeseMeter>();
+        _cheeseMeter = FindObjectOfType<CheeseMeter>();
     }
 
     private void Update()
@@ -42,7 +42,7 @@ public class PickupCheese : MonoBehaviour
     {  
         if (isStinkyCheese)
         {
-            AudioManager.instance.playOneShot(FmodEvents.instance.badCheese, this.transform.position);
+            AudioManager.Instance.playOneShot(FmodEvents.Instance.BadCheese, this.transform.position);
             this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             this.gameObject.GetComponent<PlayerMovement>().enabled = false;
             fallSpeed = -2f;
@@ -60,19 +60,19 @@ public class PickupCheese : MonoBehaviour
     void Pickup()
     {
         cheeseCounter++;
-        AudioManager.instance.playOneShot(FmodEvents.instance.cheesePickupSFX, this.transform.position);
+        AudioManager.Instance.playOneShot(FmodEvents.Instance.CheesePickupSfx, this.transform.position);
         Debug.Log("Cheese Counter: " + cheeseCounter);
-        cheeseMeter.GetCheese();
+        _cheeseMeter.GetCheese();
         if (cheeseCounter >= 9)
         {
-            GameFlow.instance.GameWin();
+            GameFlow.Instance.GameWin();
         }
     }
     
     public void ResetCheese()
     {
         cheeseCounter = 0;
-        cheeseMeter.ResetCheese();
+        _cheeseMeter.ResetCheese();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
