@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 
 public class GameFlow : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class GameFlow : MonoBehaviour
     [SerializeField] private GameObject gameWinScreen;
     [SerializeField] private GameObject restartButton;
     [SerializeField] private GameObject gameUI;
+    [SerializeField] private GameObject looseGameScreen;
+
+    private PlayableDirector playable;
     private void Awake()
     {
         if (Instance == null)
@@ -55,6 +59,7 @@ public class GameFlow : MonoBehaviour
     private void Start()
     {
         totalCraters = CraterGenerator.Instance.numberOfCraters;
+        playable = PlayerVFX.Instance.gameObject.GetComponent<PlayableDirector>();
         Begin();
     }
 
@@ -85,6 +90,7 @@ public class GameFlow : MonoBehaviour
     {
         Debug.Log("Game Stop!");
         CelestialBodySpawner.Instance.StopSpawning();
+        PickupCheese.Instance.canPickupCheese = false;
         _hasEnded = true;
     }
     
@@ -103,11 +109,17 @@ public class GameFlow : MonoBehaviour
         {
             Debug.Log("Game Stop at Crater!");
             _hasStoppedAtCrater = true;
-            
+            playable.Play();
             // MoonRotation.instance.isRotating = false;
             MoonRotation.Instance.StopRotation();
             StopGame();
         }
+    }
+    public void PatchCrater()
+    {
+        Debug.Log("Crater Patched!");
+        patchedCraters++;
+        _closestCrater.Patch();
     }
 
     private void StopGame()
@@ -115,8 +127,6 @@ public class GameFlow : MonoBehaviour
         Debug.Log("Stop Game!");
         StopPlayerActions();
         StopPlayerMovement();
-        // ONLY FOR TESTING
-        StartCoroutine(WaitThenResumePatch(3));
     }
 
     private void StopPlayerActions()
@@ -159,7 +169,6 @@ public class GameFlow : MonoBehaviour
     private IEnumerator WaitThenResumePatch(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        _closestCrater.Patch();
         Begin();
     }
 
@@ -172,15 +181,16 @@ public class GameFlow : MonoBehaviour
 
         if (patchedCraters == totalCraters)
         {
-            winGame();
+            EndGameScreen(true);
         }
     }
     
-    private void winGame()
+    private void EndGameScreen(bool hasWon)
     {
         gameWinScreen.SetActive(true);
         restartButton.SetActive(true);
     }
+    
     public void ReloadScene()
     {
         SceneManager.LoadScene(1);
