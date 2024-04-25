@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PickupCheese : MonoBehaviour
 {
+   
+    
     public static PickupCheese Instance = null;
     public int cheeseCounter = 0;
     [SerializeField] float fallAmount = 0f;
@@ -42,7 +44,11 @@ public class PickupCheese : MonoBehaviour
     {  
         if (isStinkyCheese)
         {
-            AudioManager.instance.playOneShot(FmodEvents.instance.badCheese, this.transform.position);
+            if (PlayerVFX.Instance.IsPlayerDead() != true)
+            {
+                AudioManager.instance.playOneShot(FmodEvents.instance.badCheese, this.transform.position);
+            }
+            
             this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             this.gameObject.GetComponent<PlayerMovement>().enabled = false;
             fallSpeed = -2f;

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerVFX : MonoBehaviour
 {
+    public bool IsPlayerDead()
+    {
+        return _isDead;
+
+    }
     public static PlayerVFX Instance = null;
     private void Awake()
     {
@@ -68,6 +73,7 @@ public class PlayerVFX : MonoBehaviour
     public void Die()
     {
         _isDead = true;
+        AudioManager.instance.playOneShot(FmodEvents.instance.crash, this.transform.position);
         StopAllCoroutines();
 
         spriteRenderer.sprite = deadMouse;
