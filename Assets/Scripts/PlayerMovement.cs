@@ -5,6 +5,23 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
+    public static PlayerMovement instance = null;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+        DontDestroyOnLoad(gameObject);
+        
+    }
+    
     Rigidbody2D body;
     public bool canPlaySound = false;
     private EventInstance spaceShipLift;

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PickupCheese : MonoBehaviour
 {
-    
+    public static PickupCheese instance = null;
     public int cheeseCounter = 0;
     [SerializeField] float fallAmount = 0f;
     [SerializeField] float fallSpeed = 0f;
@@ -14,13 +14,22 @@ public class PickupCheese : MonoBehaviour
     [SerializeField] bool isStinkyCheese = false;
 
     CheeseMeter cheeseMeter;
-    GameFlow gameFlow;
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+        DontDestroyOnLoad(gameObject);
+        
         cheeseCounter = 0;
         cheeseMeter = FindObjectOfType<CheeseMeter>();
-        gameFlow = FindObjectOfType<GameFlow>();
     }
 
     private void Update()
@@ -54,15 +63,14 @@ public class PickupCheese : MonoBehaviour
         AudioManager.instance.playOneShot(FmodEvents.instance.cheesePickupSFX, this.transform.position);
         Debug.Log("Cheese Counter: " + cheeseCounter);
         cheeseMeter.GetCheese();
-        if (cheeseCounter == 9)
+        if (cheeseCounter >= 9)
         {
-            ResetCheese();
+            GameFlow.instance.GameWin();
         }
     }
     
-    void ResetCheese()
+    public void ResetCheese()
     {
-        
         cheeseCounter = 0;
         cheeseMeter.ResetCheese();
     }

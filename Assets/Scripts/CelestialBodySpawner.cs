@@ -7,6 +7,8 @@ public class CelestialBodySpawner : MonoBehaviour
 {
     public static CelestialBodySpawner instance = null;
     
+    public bool isSpawning = true;
+    
     [SerializeField]
     private GameObject meteoritePrefab, cheesePrefab, stinkyCheesePrefab;
     
@@ -172,7 +174,8 @@ public class CelestialBodySpawner : MonoBehaviour
             float waveOffset = mapSection.waveOffset;
             int phaseShiftInteval = Random.Range(5, 10);
             
-            int numberOfCheeses = (int)Mathf.Round(Random.Range((float)(mapSection.cheeseAmount * .5), mapSection.cheeseAmount * 2)); // Number of cheeses to spawn
+            int numberOfCheeses = (int)Mathf.Round(Random.Range((float)(mapSection.cheeseAmount * .5), mapSection.cheeseAmount * 2)); // Number of cheeses to 
+            
             float numberOfMeteorites = mapSection.meteoriteAmount;
             float cheeseDensity = numberOfCheeses / 10f; // Cheeses per x unit
             float meteoriteDensity = numberOfMeteorites / 10f; // Meteorites per x unit
@@ -326,9 +329,20 @@ public class CelestialBodySpawner : MonoBehaviour
     private float _cheeseTimer = 0;
     private void Update()
     {
+        // Move celestial bodies
         _meteoriteTimer += Time.deltaTime;
         _cheeseTimer += Time.deltaTime;
         
+        Vector3 moveVector = new Vector3(-Time.deltaTime, 0, 0);
+        _cheeseRoot.transform.position += cheeseSpeed * moveVector;
+        _meteoriteRoot.transform.position += meteoriteSpeed * moveVector;
+        
+        if (!isSpawning)
+        {
+            return;
+        }
+        
+        // Spawn celestial bodies
         var flippedMeteoriteAmount = 1f / defaultMeteoriteAmount * 10;
         var flippedCheeseAmount = 1f / defaultCheeseAmount * 10;
 
@@ -343,8 +357,14 @@ public class CelestialBodySpawner : MonoBehaviour
             _cheeseTimer = 0;
             if (randomizeCheeses) SpawnRandomCelestialBody(CheeseOrStinkyCheese(_stinkyCheeseInterval));
         }
-        Vector3 moveVector = new Vector3(-Time.deltaTime, 0, 0);
-        _cheeseRoot.transform.position += cheeseSpeed * moveVector;
-        _meteoriteRoot.transform.position += meteoriteSpeed * moveVector;
+    }
+    
+    public void StopSpawning()
+    {
+        isSpawning = false;
+    }
+    public void StartSpawning()
+    {
+        isSpawning = true;
     }
 }

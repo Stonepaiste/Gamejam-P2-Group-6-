@@ -10,6 +10,8 @@ public class MoonCrater : MonoBehaviour
     // Start is called before the first frame update
     
     private int craterIndex;
+    
+    public bool isPatched = false;
     void Start()
     {
         craterIndex = Random.Range(0, craters.Length);
@@ -17,11 +19,12 @@ public class MoonCrater : MonoBehaviour
     }
     public void Patch()
     {
+        isPatched = true;
         gameObject.GetComponent<SpriteRenderer>().sprite = patches[craterIndex];
     }
     
     // Get closest crater to the right of a point
-    public static MoonCrater GetClosestCraterRight(Vector3 point, List<MoonCrater> craters)
+    public static (MoonCrater, float) GetClosestCraterRight(Vector3 point, List<MoonCrater> craters)
     {
         MoonCrater closestCrater = null;
         float closestDistance = float.MaxValue;
@@ -37,6 +40,6 @@ public class MoonCrater : MonoBehaviour
                 }
             }
         }
-        return closestCrater;
+        return (closestCrater, closestDistance);
     }
 }

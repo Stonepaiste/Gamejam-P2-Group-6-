@@ -25,7 +25,7 @@ public class CraterGenerator : MonoBehaviour
     }
     
     [SerializeField] GameObject crater;
-    [SerializeField] int numberOfCraters = 10;
+    [SerializeField] public int numberOfCraters = 10;
     [SerializeField] float moonRadius = 20f;
     [SerializeField][Tooltip("Min Distance between craters.")] float minDistance = 5f;
     
@@ -89,5 +89,27 @@ public class CraterGenerator : MonoBehaviour
             Quaternion rotation = Quaternion.AngleAxis(rotationAngle, Vector3.forward);
             Instantiate(crater, randomPosition, rotation, this.transform);
         }
+    }
+    
+    // Get closest crater to the right of a point and return the crater and the distance
+    public (MoonCrater, float) GetClosestCraterRight(Vector3 point)
+    {
+        MoonCrater[] craters = instance.GetComponentsInChildren<MoonCrater>();
+        MoonCrater closestCrater = null;
+        float closestDistance = float.MaxValue;
+        foreach (MoonCrater crater in craters)
+        {
+            if (crater.transform.position.x > point.x && crater.isPatched == false)
+            {
+                // float distance = Vector3.Distance(point, crater.transform.position);
+                float distance = Mathf.Abs(point.x - crater.transform.position.x);
+                if (distance < closestDistance)
+                {
+                    closestCrater = crater;
+                    closestDistance = distance;
+                }
+            }
+        }
+        return (closestCrater, closestDistance);
     }
 }
