@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 8534535083564131787}
   - component: {fileID: 7162077657504447298}
   - component: {fileID: 1568174998584173844}
+  - component: {fileID: 7436141072138656362}
   m_Layer: 5
   m_Name: LivSprite
   m_TagString: Untagged
@@ -276,6 +277,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7436141072138656362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654287594871474714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6241a80bbb062f4409296a91a70da0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8838762567193059600
 GameObject:
   m_ObjectHideFlags: 0
