@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5520346033478414927}
   - component: {fileID: 7536685933304313012}
   - component: {fileID: 9207727897563158033}
+  - component: {fileID: 8797929374190877741}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549c9609660570242b454d9abb25da4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPlaySound: 0
 --- !u!50 &6906732770297215591
 Rigidbody2D:
   serializedVersion: 4
@@ -220,3 +222,16 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8797929374190877741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270372447500394001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81afb0aec8e2e40d6a945afdf03364cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadMouse: {fileID: 21300000, guid: 0501f43f58a816e46b68248ac3d0ac4a, type: 3}
