@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _body= GetComponent<Rigidbody2D>();
-        _spaceShipLift = AudioManager.Instance.CreatInstance(FmodEvents.Instance.SpaceShipLift);
+        _spaceShipLift = AudioManager.instance.CreatInstance(FmodEvents.instance.spaceShipLift);
         _previousYPosition = transform.position.y;
     }
 

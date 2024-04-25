@@ -42,7 +42,7 @@ public class PickupCheese : MonoBehaviour
     {  
         if (isStinkyCheese)
         {
-            AudioManager.Instance.playOneShot(FmodEvents.Instance.BadCheese, this.transform.position);
+            AudioManager.instance.playOneShot(FmodEvents.instance.badCheese, this.transform.position);
             this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             this.gameObject.GetComponent<PlayerMovement>().enabled = false;
             fallSpeed = -2f;
@@ -60,7 +60,7 @@ public class PickupCheese : MonoBehaviour
     void Pickup()
     {
         cheeseCounter++;
-        AudioManager.Instance.playOneShot(FmodEvents.Instance.CheesePickupSfx, this.transform.position);
+        AudioManager.instance.playOneShot(FmodEvents.instance.cheesePickupSFX, this.transform.position);
         Debug.Log("Cheese Counter: " + cheeseCounter);
         _cheeseMeter.GetCheese();
         if (cheeseCounter >= 9)
