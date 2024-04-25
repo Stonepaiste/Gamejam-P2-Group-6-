@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 using UnityEngine.UI;
 public class Meteor : MonoBehaviour
 {
@@ -22,4 +23,6 @@ public class Meteor : MonoBehaviour
             AudioManager.instance.playOneShot(FmodEvents.instance.astroidHit, this.transform.position);
         }
     }
+
+    
 }
