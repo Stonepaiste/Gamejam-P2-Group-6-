@@ -164,12 +164,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b87de3a21aca1fc4db849cd3b92133b8, type: 3}
+  m_Sprite: {fileID: -1805242963, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 8.83, y: 7.8124804}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -204,7 +204,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8270372447500394001}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -259,8 +259,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 23.603092, y: 16.4}
-    newSize: {x: 1, y: 2}
+    oldSize: {x: 8.83, y: 7.8124804}
+    newSize: {x: 8.83, y: 7.8124804}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -288,8 +288,8 @@ MonoBehaviour:
   - {fileID: 1188517815, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
   - {fileID: -320265100, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
   playerAlarmLightsSprites:
-  - {fileID: 21300000, guid: ebbc528c62993eb4b97fb4fa6f8a273c, type: 3}
-  - {fileID: 21300000, guid: b87de3a21aca1fc4db849cd3b92133b8, type: 3}
+  - {fileID: 856985955, guid: bca1294416894e04a8308feec4e7be63, type: 3}
+  - {fileID: -881518917, guid: bca1294416894e04a8308feec4e7be63, type: 3}
   spriteRenderer: {fileID: 0}
   deadMouse: {fileID: 21300000, guid: 0501f43f58a816e46b68248ac3d0ac4a, type: 3}
 --- !u!114 &5520346033478414927
