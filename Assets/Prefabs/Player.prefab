@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 6927066909903357785}
   - component: {fileID: 5520346033478414927}
   - component: {fileID: 5258439365980629068}
+  - component: {fileID: 5331362358448934062}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -211,7 +212,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -309,6 +310,7 @@ MonoBehaviour:
   fallSpeed: -1
   shakeAmount: 0.6
   isStinkyCheese: 0
+  canPickupCheese: 1
 --- !u!114 &5258439365980629068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,3 +324,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPlaySound: 0
+--- !u!320 &5331362358448934062
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270372447500394001}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 6293053957215555158, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
+    value: {fileID: 1960069775181752127}
+  - key: {fileID: 6399352958965194300, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7310548900829826874, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4765136488814293246, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []

@@ -99,7 +99,7 @@ public class CraterGenerator : MonoBehaviour
         float closestDistance = float.MaxValue;
         foreach (MoonCrater crater in craters)
         {
-            Debug.Log("point" + point.y + "crater" + crater.transform.position.y);
+            // Debug.Log("point" + point.y + "crater" + crater.transform.position.y);
             if (crater.transform.position.x > point.x && crater.transform.position.y > -5 && crater.isPatched == false)
             {
                 // float distance = Vector3.Distance(point, crater.transform.position);

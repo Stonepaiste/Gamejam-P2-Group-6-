@@ -6,12 +6,16 @@ using UnityEngine.InputSystem;
 
 public class PickupCheese : MonoBehaviour
 {
+   
+    
     public static PickupCheese Instance = null;
     public int cheeseCounter = 0;
     [SerializeField] float fallAmount = 0f;
     [SerializeField] float fallSpeed = 0f;
     [SerializeField] float shakeAmount = 0.6f;
     [SerializeField] bool isStinkyCheese = false;
+    
+    public bool canPickupCheese = true; 
 
     CheeseMeter _cheeseMeter;
 
@@ -31,18 +35,17 @@ public class PickupCheese : MonoBehaviour
         cheeseCounter = 0;
         _cheeseMeter = FindObjectOfType<CheeseMeter>();
     }
-
-    private void Update()
-    {
     
-        
-    }
 
     private void StopMovement()
     {  
         if (isStinkyCheese)
         {
-            AudioManager.instance.playOneShot(FmodEvents.instance.badCheese, this.transform.position);
+            if (PlayerVFX.Instance.IsPlayerDead() != true)
+            {
+                AudioManager.instance.playOneShot(FmodEvents.instance.badCheese, this.transform.position);
+            }
+            
             this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             this.gameObject.GetComponent<PlayerMovement>().enabled = false;
             fallSpeed = -2f;
@@ -59,13 +62,16 @@ public class PickupCheese : MonoBehaviour
 
     void Pickup()
     {
-        cheeseCounter++;
-        AudioManager.instance.playOneShot(FmodEvents.instance.cheesePickupSFX, this.transform.position);
-        Debug.Log("Cheese Counter: " + cheeseCounter);
-        _cheeseMeter.GetCheese();
-        if (cheeseCounter >= 9)
+        if (canPickupCheese)
         {
-            GameFlow.Instance.GameWin();
+            cheeseCounter++;
+            AudioManager.instance.playOneShot(FmodEvents.instance.cheesePickupSFX, this.transform.position);
+            Debug.Log("Cheese Counter: " + cheeseCounter);
+            _cheeseMeter.GetCheese();
+            if (cheeseCounter >= 9)
+            {
+                GameFlow.Instance.GameWin();
+            }
         }
     }
     
