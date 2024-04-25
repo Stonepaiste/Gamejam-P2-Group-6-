@@ -50,5 +50,4 @@ public class Liv : MonoBehaviour
         float fillAmount = FillLevel / MaxFillLevel;
         livSpriteRenderer.fillAmount = fillAmount;
     }
-
 }

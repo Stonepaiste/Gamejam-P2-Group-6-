@@ -29,6 +29,8 @@ public class GameFlow : MonoBehaviour
     [SerializeField] private GameObject restartButton;
     [SerializeField] private GameObject gameUI;
     [SerializeField] private GameObject looseGameScreen;
+    
+    Vector3 playerPosition;
 
     private PlayableDirector playable;
     private void Awake()
@@ -60,7 +62,14 @@ public class GameFlow : MonoBehaviour
     {
         totalCraters = CraterGenerator.Instance.numberOfCraters;
         playable = PlayerVFX.Instance.gameObject.GetComponent<PlayableDirector>();
+        
+        playerPosition = PlayerMovement.Instance.transform.position;
         Begin();
+    }
+    
+    public void Intro()
+    {
+        Debug.Log("Intro!");
     }
 
     void Begin()
@@ -68,10 +77,10 @@ public class GameFlow : MonoBehaviour
         Debug.Log("Game Start!");
         _hasStoppedAtCrater = false;
         _hasEnded = false;
-        var vector3 = PlayerMovement.Instance.gameObject.transform.position;
+        var vector3 = playerPosition;
         vector3.y = 0;
         PlayerMovement.Instance.gameObject.transform.position = vector3;
-        Liv.Instance.Initiate();
+        // Liv.Instance.Initiate();
         PlayerVFX.Instance.Initiate();
         PickupCheese.Instance.ResetCheese();
         PickupCheese.Instance.canPickupCheese = true;
@@ -110,11 +119,24 @@ public class GameFlow : MonoBehaviour
             Debug.Log("Game Stop at Crater!");
             _hasStoppedAtCrater = true;
             playable.Play();
+            // When the playable is done, stop the playable and resume the game
+            StartCoroutine(WaitThenResumeGame((float)playable.duration));
             // MoonRotation.instance.isRotating = false;
             MoonRotation.Instance.StopRotation();
             StopGame();
         }
     }
+    
+    private IEnumerator WaitThenResumeGame(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        playable.Stop();
+        // TODO: Replace with timeline event.
+        Camera.main.transform.position = new Vector3(0, 0, -10);
+        Camera.main.orthographicSize = 5;
+        Begin();
+    }
+    
     public void PatchCrater()
     {
         Debug.Log("Crater Patched!");
@@ -166,17 +188,14 @@ public class GameFlow : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
     }
-    private IEnumerator WaitThenResumePatch(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        Begin();
-    }
-
     private void Update()
     {
-        if (PlayerMovement.Instance != null && !_hasStoppedAtCrater && _hasEnded)
+        if (PlayerMovement.Instance is not null && !_hasStoppedAtCrater)
         {
-            StopAtCrater();
+            if (_hasEnded)
+            {
+                StopAtCrater();
+            }
         }
 
         if (patchedCraters == totalCraters)
