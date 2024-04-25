@@ -25,7 +25,7 @@ public class Liv : MonoBehaviour
         }
     }
 
-    void DecreaseFillLevel(float amount)
+    public void DecreaseFillLevel(float amount)
     {
         fillLevel -= amount;
         if (fillLevel < 0)
