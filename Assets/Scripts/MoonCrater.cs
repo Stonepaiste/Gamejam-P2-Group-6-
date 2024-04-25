@@ -9,18 +9,18 @@ public class MoonCrater : MonoBehaviour
     [SerializeField] Sprite[] patches;
     // Start is called before the first frame update
     
-    private int craterIndex;
+    private int _craterIndex;
     
     public bool isPatched = false;
     void Start()
     {
-        craterIndex = Random.Range(0, craters.Length);
-        gameObject.GetComponent<SpriteRenderer>().sprite = craters[craterIndex];
+        _craterIndex = Random.Range(0, craters.Length);
+        gameObject.GetComponent<SpriteRenderer>().sprite = craters[_craterIndex];
     }
     public void Patch()
     {
         isPatched = true;
-        gameObject.GetComponent<SpriteRenderer>().sprite = patches[craterIndex];
+        gameObject.GetComponent<SpriteRenderer>().sprite = patches[_craterIndex];
     }
     
     // Get closest crater to the right of a point

@@ -4,21 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Meteor : MonoBehaviour
 {
-    Liv Liv;
-    PlayerVFX playerVFX;
+    Liv _liv;
+    PlayerVFX _playerVFX;
     private void Start()
     {
-        Liv = FindObjectOfType<Liv>();
-        playerVFX = FindObjectOfType<PlayerVFX>();
+        _liv = FindObjectOfType<Liv>();
+        _playerVFX = FindObjectOfType<PlayerVFX>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Liv.DecreaseFillLevel(1f);
-            playerVFX.AlarmLights();
+            _liv.DecreaseFillLevel(1f);
+            _playerVFX.AlarmLights();
             Debug.Log("oh no!");
+            AudioManager.instance.playOneShot(FmodEvents.instance.astroidHit, this.transform.position);
         }
     }
 }

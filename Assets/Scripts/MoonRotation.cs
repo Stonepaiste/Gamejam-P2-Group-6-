@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class MoonRotation : MonoBehaviour
 {
-    public static MoonRotation instance = null;
+    public static MoonRotation Instance = null;
     
     public bool isRotating = true;
 
-    private float currentSpeed;
+    private float _currentSpeed;
     [SerializeField] float moonSpeed = 3f;
-    [SerializeField] float stopDuration = 1f;
+    [SerializeField] float changeDuration = 1f;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -24,7 +24,7 @@ public class MoonRotation : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         
-        currentSpeed = moonSpeed;
+        _currentSpeed = moonSpeed;
     }
 
     // Update is called once per frame
@@ -39,25 +39,31 @@ public class MoonRotation : MonoBehaviour
 
     void RotateMoon()
     {
-        transform.Rotate(Vector3.forward * currentSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.forward * _currentSpeed * Time.deltaTime);
     }
     
     public void StopRotation()
     {
+        StartCoroutine(ChangeRotationGradually(0));
         isRotating = false;
-        StartCoroutine(StopRotationGradually());
     }
     
-    private IEnumerator StopRotationGradually()
+    public void StartRotation()
     {
+        StartCoroutine(ChangeRotationGradually(moonSpeed));
+        isRotating = true;
+    }
+    
+    private IEnumerator ChangeRotationGradually(float targetSpeed)
+    {
+        float initialSpeed = _currentSpeed;
         float timeElapsed = 0;
-        while (timeElapsed < stopDuration)
+        while (timeElapsed < changeDuration)
         {
-            currentSpeed = Mathf.Lerp(moonSpeed, 0, timeElapsed / stopDuration);
+            _currentSpeed = Mathf.Lerp(initialSpeed, targetSpeed, timeElapsed / changeDuration);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        currentSpeed = 0;
-        isRotating = false;
+        _currentSpeed = targetSpeed;
     }
 }

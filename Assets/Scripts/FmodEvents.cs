@@ -17,6 +17,9 @@ public class FmodEvents : MonoBehaviour
     
     [field: Header ("Badcheese")]
     [field: SerializeField] public EventReference badCheese { get; private set; }
+    
+    [field: Header ("AstroidHit")]
+    [field:SerializeField] public EventReference astroidHit { get; private set; }
    public static FmodEvents instance { get; private set; }
    
    private void Awake()
