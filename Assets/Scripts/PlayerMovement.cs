@@ -6,12 +6,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     
-    public static PlayerMovement instance = null;
+    public static PlayerMovement Instance = null;
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -22,16 +22,16 @@ public class PlayerMovement : MonoBehaviour
         
     }
     
-    Rigidbody2D body;
+    Rigidbody2D _body;
     public bool canPlaySound = false;
-    private EventInstance spaceShipLift;
-    private float previousYPosition; 
+    private EventInstance _spaceShipLift;
+    private float _previousYPosition; 
     
     void Start()
     {
-        body= GetComponent<Rigidbody2D>();
-        spaceShipLift = AudioManager.instance.CreatInstance(FmodEvents.instance.spaceShipLift);
-        previousYPosition = transform.position.y;
+        _body= GetComponent<Rigidbody2D>();
+        _spaceShipLift = AudioManager.instance.CreatInstance(FmodEvents.instance.spaceShipLift);
+        _previousYPosition = transform.position.y;
     }
 
     
@@ -47,13 +47,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             canPlaySound = true;
-            body.AddForce(new Vector3(0, 50, 0), ForceMode2D.Force);
+            _body.AddForce(new Vector3(0, 50, 0), ForceMode2D.Force);
             //Debug.Log("Mouse Clicked" + canPlaySound);
 
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            body.velocity *= 0.25f;
+            _body.velocity *= 0.25f;
 
         }
         else
@@ -66,23 +66,23 @@ public class PlayerMovement : MonoBehaviour
     {
         float currentYPosition = transform.position.y;
 
-        if (currentYPosition > previousYPosition)
+        if (currentYPosition > _previousYPosition)
         {
             // Player is rising, play the sound
             PLAYBACK_STATE playbackState;
-            spaceShipLift.getPlaybackState(out playbackState);
+            _spaceShipLift.getPlaybackState(out playbackState);
             if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
             {
-                spaceShipLift.start();
+                _spaceShipLift.start();
             }
         }
-        else if (currentYPosition < previousYPosition)
+        else if (currentYPosition < _previousYPosition)
         {
             // Player is falling, stop the sound
-            spaceShipLift.stop(STOP_MODE.ALLOWFADEOUT);
+            _spaceShipLift.stop(STOP_MODE.ALLOWFADEOUT);
         }
 
-        previousYPosition = currentYPosition;
+        _previousYPosition = currentYPosition;
     }
     
     //private void UpdateSound()

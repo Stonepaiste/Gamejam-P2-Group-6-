@@ -101,7 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crater: {fileID: 8862534204992240648, guid: 405c9b130f59c74469261780908615cf, type: 3}
   numberOfCraters: 10
-  moonDiameter: 10
+  moonRadius: 17
+  minDistance: 5
 --- !u!114 &5806716395976021670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd2db7c1227c4a4eadcb07c55779c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRotating: 1
   moonSpeed: 3
+  changeDuration: 2
 --- !u!58 &3023442211872745312
 CircleCollider2D:
   m_ObjectHideFlags: 0
