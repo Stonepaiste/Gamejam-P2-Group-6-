@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D body;
-
+    bool canPlaySound = false;
     void Start()
     {
         body= GetComponent<Rigidbody2D>();
@@ -15,19 +15,23 @@ public class PlayerMovement : MonoBehaviour
     
     void FixedUpdate()
     {
+        AddForce();
+    }
+
+    private void AddForce()
+    {
         if (Input.GetMouseButton(0))
         {
-            body.AddForce(new Vector3(0, 50, 0),ForceMode2D.Force);
-            // Debug.Log("Mouse Clicked");
-            //AudioManager.instance.playOneShot(FmodEvents.instance.spaceShipLift, this.transform.position);
+            canPlaySound = Input.GetMouseButtonDown(0);
+            body.AddForce(new Vector3(0, 50, 0), ForceMode2D.Force);
+            //Debug.Log("Mouse Clicked" + canPlaySound);
+
         }
         else if (Input.GetMouseButtonUp(0))
         {
-           body.velocity*=0.25f;
+            body.velocity *= 0.25f;
 
-              //AudioManager.instance.stopSpaceshipLiftSound();
-           
-           
+
         }
     }
 }
