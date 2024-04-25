@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543306693328947988}
   - component: {fileID: 1846890444827257301}
+  - component: {fileID: -6215611884760403802}
   - component: {fileID: 5806716395976021670}
   - component: {fileID: 3023442211872745312}
   m_Layer: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: b80b52c7c3d2be14e9719efb35a5d880, type: 3}
   m_Color: {r: 0.9748427, g: 0.9613435, b: 0.8001067, a: 1}
   m_FlipX: 0
@@ -86,6 +87,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-6215611884760403802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3365750355551244466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1357a957e7fae4a819cdc1b47a741b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crater: {fileID: 8862534204992240648, guid: 405c9b130f59c74469261780908615cf, type: 3}
+  numberOfCraters: 10
+  moonDiameter: 10
 --- !u!114 &5806716395976021670
 MonoBehaviour:
   m_ObjectHideFlags: 0

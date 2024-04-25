@@ -13,21 +13,25 @@ public class PickupCheese : MonoBehaviour
     [SerializeField] float shakeAmount = 0.6f;
     [SerializeField] bool isStinkyCheese = false;
 
+    CheeseMeter cheeseMeter;
+
     private void Awake()
     {
         cheeseCounter = 0;
-
+        cheeseMeter = FindObjectOfType<CheeseMeter>();
     }
 
     private void Update()
     {
-        StopMovement();
+    
+        
     }
 
     private void StopMovement()
-    {
+    {  
         if (isStinkyCheese)
         {
+            AudioManager.instance.playOneShot(FmodEvents.instance.badCheese, this.transform.position);
             this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             this.gameObject.GetComponent<PlayerMovement>().enabled = false;
             fallSpeed = -2f;
@@ -47,6 +51,17 @@ public class PickupCheese : MonoBehaviour
         cheeseCounter++;
         AudioManager.instance.playOneShot(FmodEvents.instance.cheesePickupSFX, this.transform.position);
         Debug.Log("Cheese Counter: " + cheeseCounter);
+        cheeseMeter.GetCheese();
+        if (cheeseCounter == 9)
+        {
+            ResetCheese();
+        }
+    }
+
+    void ResetCheese()
+    {
+        cheeseCounter = 0;
+        cheeseMeter.ResetCheese();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,6 +74,7 @@ public class PickupCheese : MonoBehaviour
         if (collision.gameObject.tag == "StinkyCheese")
         {
             isStinkyCheese = true;
+            StopMovement();
             Destroy(collision.gameObject);
         }
     }

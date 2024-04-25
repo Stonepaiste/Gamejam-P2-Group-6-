@@ -8,28 +8,23 @@ public class Liv : MonoBehaviour
 
     [SerializeField] public Image livSpriteRenderer;
     public int maxFillLevel = 3;
-    private float fillLevel;
+    public float fillLevel;
+    death death;
 
     void Start()
     {
         fillLevel = maxFillLevel;
         UpdateLivSprite();
+        death = FindObjectOfType<death>();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            DecreaseFillLevel(1f);
-        }
-    }
-
-    void DecreaseFillLevel(float amount)
+    public void DecreaseFillLevel(float amount)
     {
         fillLevel -= amount;
         if (fillLevel < 0)
         {
             fillLevel = 0;
+            death.Die();
         }
         UpdateLivSprite();
     }
@@ -38,7 +33,6 @@ public class Liv : MonoBehaviour
     {
         float fillAmount = fillLevel / maxFillLevel;
         livSpriteRenderer.fillAmount = fillAmount;
-
-        //livSpriteRenderer.transform.localScale = new Vector3(fillPercentage, 1, 1);
     }
+
 }
