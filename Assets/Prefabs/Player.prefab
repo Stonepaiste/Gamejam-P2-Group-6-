@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 8797929374190877741}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ebbc528c62993eb4b97fb4fa6f8a273c, type: 3}
   - {fileID: 21300000, guid: b87de3a21aca1fc4db849cd3b92133b8, type: 3}
   spriteRenderer: {fileID: 0}
+  deadMouse: {fileID: 21300000, guid: 0501f43f58a816e46b68248ac3d0ac4a, type: 3}
 --- !u!114 &5520346033478414927
 MonoBehaviour:
   m_ObjectHideFlags: 0
