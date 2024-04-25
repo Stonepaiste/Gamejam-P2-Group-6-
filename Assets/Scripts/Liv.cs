@@ -25,6 +25,7 @@ public class Liv : MonoBehaviour
         {
             fillLevel = 0;
             playerVFX.Die();
+            GameFlow.instance.GameOver();
         }
         UpdateLivSprite();
     }

@@ -17,7 +17,11 @@ public class CraterGenerator : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+
+        if (Application.isPlaying)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
     
     [SerializeField] GameObject crater;
