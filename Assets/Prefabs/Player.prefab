@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4001519651287662810}
   - component: {fileID: 5258439365980629068}
   - component: {fileID: 6906732770297215591}
+  - component: {fileID: 6927066909903357785}
   - component: {fileID: 5520346033478414927}
   - component: {fileID: 7536685933304313012}
   - component: {fileID: 9207727897563158033}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b87de3a21aca1fc4db849cd3b92133b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549c9609660570242b454d9abb25da4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPlaySound: 0
 --- !u!50 &6906732770297215591
 Rigidbody2D:
   serializedVersion: 4
@@ -128,6 +130,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &6927066909903357785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270372447500394001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0e479632da92948b104e39f7c95f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLightsSprite:
+  - {fileID: -1805242963, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  - {fileID: -942527726, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  - {fileID: -1685236483, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  - {fileID: -1886694466, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  - {fileID: 1188517815, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  - {fileID: -320265100, guid: c5a4ecebca6b7624cac825a2746357f9, type: 3}
+  playerAlarmLightsSprites:
+  - {fileID: 21300000, guid: ebbc528c62993eb4b97fb4fa6f8a273c, type: 3}
+  - {fileID: 21300000, guid: b87de3a21aca1fc4db849cd3b92133b8, type: 3}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &5520346033478414927
 MonoBehaviour:
   m_ObjectHideFlags: 0

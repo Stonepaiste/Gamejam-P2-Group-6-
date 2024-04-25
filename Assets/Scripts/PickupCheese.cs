@@ -55,7 +55,7 @@ public class PickupCheese : MonoBehaviour
             ResetCheese();
         }
     }
-
+    
     void ResetCheese()
     {
         cheeseCounter = 0;
