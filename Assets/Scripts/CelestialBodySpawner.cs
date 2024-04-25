@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class CelestialBodySpawner : MonoBehaviour
 {
-    public static CelestialBodySpawner instance = null;
+    public static CelestialBodySpawner Instance = null;
     
     public bool isSpawning = true;
     
@@ -105,9 +105,9 @@ public class CelestialBodySpawner : MonoBehaviour
     private int _stinkyCheeseInterval = 0;
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {

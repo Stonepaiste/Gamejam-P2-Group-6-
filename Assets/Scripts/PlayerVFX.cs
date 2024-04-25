@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerVFX : MonoBehaviour
 {
-    public static PlayerVFX instance = null;
+    public static PlayerVFX Instance = null;
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -23,8 +23,8 @@ public class PlayerVFX : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite deadMouse;
     
-    bool mustDie = false;
-    bool isDead = false;
+    bool _mustDie = false;
+    bool _isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +46,7 @@ public class PlayerVFX : MonoBehaviour
     
     public void AlarmLights()
     {
-        if (isDead) return;
+        if (_isDead) return;
         StopAllCoroutines();
         StartCoroutine(AlarmLightsCoroutine());
     }
@@ -61,13 +61,13 @@ public class PlayerVFX : MonoBehaviour
             index = (index + 1) % playerAlarmLightsSprites.Length;
             yield return new WaitForSeconds(0.2f);
         }
-        Debug.Log("AlarmLightsCoroutine completed" + mustDie);
+        Debug.Log("AlarmLightsCoroutine completed" + _mustDie);
         StartCoroutine(LoopLights());
     }
     
     public void Die()
     {
-        isDead = true;
+        _isDead = true;
         StopAllCoroutines();
 
         spriteRenderer.sprite = deadMouse;

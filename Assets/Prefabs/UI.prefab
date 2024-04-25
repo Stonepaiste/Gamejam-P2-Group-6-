@@ -365,8 +365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livSpriteRenderer: {fileID: 1568174998584173844}
-  maxFillLevel: 3
-  fillLevel: 0
 --- !u!1 &8838762567193059600
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,10 +415,10 @@ Canvas:
   m_GameObject: {fileID: 8838762567193059600}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

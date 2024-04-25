@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class CheeseMeter : MonoBehaviour
 {
     public Image cheeseBar;
-    float cheeseFill;
+    float _cheeseFill;
 
     public void GetCheese()
     {
         Debug.Log(cheeseBar.fillAmount + "got cheese");
-        cheeseFill = 1f / 9f;
-        cheeseBar.fillAmount += cheeseFill;
+        _cheeseFill = 1f / 9f;
+        cheeseBar.fillAmount += _cheeseFill;
     }
 
     public void ResetCheese()
