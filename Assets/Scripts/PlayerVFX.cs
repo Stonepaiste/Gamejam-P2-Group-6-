@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class PlayerVFX : MonoBehaviour
 {
+    public static PlayerVFX instance = null;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+    
     [SerializeField] Sprite[] playerLightsSprite;
     [SerializeField] Sprite[] playerAlarmLightsSprites;
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -57,5 +71,6 @@ public class PlayerVFX : MonoBehaviour
         StopAllCoroutines();
 
         spriteRenderer.sprite = deadMouse;
+        
     }
 }

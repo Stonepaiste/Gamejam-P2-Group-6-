@@ -5,6 +5,8 @@ using Random = UnityEngine.Random;
 
 public class CelestialBodySpawner : MonoBehaviour
 {
+    public static CelestialBodySpawner instance = null;
+    
     [SerializeField]
     private GameObject meteoritePrefab, cheesePrefab, stinkyCheesePrefab;
     
@@ -101,6 +103,16 @@ public class CelestialBodySpawner : MonoBehaviour
     private int _stinkyCheeseInterval = 0;
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+        
         // Get viewport top and bottom in world space
         float topEdgeY = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
         float bottomEdgeY = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;

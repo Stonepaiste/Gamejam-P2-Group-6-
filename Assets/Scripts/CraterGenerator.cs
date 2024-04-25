@@ -6,6 +6,20 @@ using Random = UnityEngine.Random;
 [ExecuteInEditMode]
 public class CraterGenerator : MonoBehaviour
 {
+    public static CraterGenerator instance = null;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+    
     [SerializeField] GameObject crater;
     [SerializeField] int numberOfCraters = 10;
     [SerializeField] float moonRadius = 20f;

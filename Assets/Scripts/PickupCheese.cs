@@ -14,11 +14,13 @@ public class PickupCheese : MonoBehaviour
     [SerializeField] bool isStinkyCheese = false;
 
     CheeseMeter cheeseMeter;
+    GameFlow gameFlow;
 
     private void Awake()
     {
         cheeseCounter = 0;
         cheeseMeter = FindObjectOfType<CheeseMeter>();
+        gameFlow = FindObjectOfType<GameFlow>();
     }
 
     private void Update()
@@ -60,6 +62,7 @@ public class PickupCheese : MonoBehaviour
     
     void ResetCheese()
     {
+        
         cheeseCounter = 0;
         cheeseMeter.ResetCheese();
     }

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoonRotation : MonoBehaviour
+public class GameFlow : MonoBehaviour
 {
-    public static MoonRotation instance = null;
+    public static GameFlow instance = null;
     private void Awake()
     {
         if (instance == null)
@@ -17,17 +17,12 @@ public class MoonRotation : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-    [SerializeField] float moonSpeed = 3f;
-
-    // Update is called once per frame
-    void Update()
+    public void GameOver()
     {
-        RotateMoon();
+        Debug.Log("Game Over!");
     }
-
-
-    void RotateMoon()
+    public void GameWin()
     {
-        transform.Rotate(Vector3.forward * moonSpeed * Time.deltaTime);
+        Debug.Log("Game Win!");
     }
 }
