@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
-    public void GoToIntroScene()
+    public void GoToIntroScene()        // Code from https://www.youtube.com/watch?v=3SdMFPdSi7M&t=656s
     {
         //SceneManager.LoadScene("IntroScene");
         SceneManager.LoadScene(1);        //Scene index i stedet
