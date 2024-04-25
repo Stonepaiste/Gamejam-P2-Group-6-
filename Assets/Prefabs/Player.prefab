@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6906732770297215591}
   - component: {fileID: 5520346033478414927}
   - component: {fileID: 7536685933304313012}
+  - component: {fileID: 9207727897563158033}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -140,8 +141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cheeseCounter: 0
-  fallAmount: 0
-  fallSpeed: 0
+  fallAmount: 0.01
+  fallSpeed: -1
+  shakeAmount: 0.6
   isStinkyCheese: 0
 --- !u!61 &7536685933304313012
 BoxCollider2D:
@@ -188,3 +190,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.871382, y: 6.00754}
   m_EdgeRadius: 0
+--- !u!114 &9207727897563158033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270372447500394001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 03bea0edf8c6b494cbdcac0e47f0df91, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
