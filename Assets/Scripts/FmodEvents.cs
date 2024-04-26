@@ -23,6 +23,9 @@ public class FmodEvents : MonoBehaviour
     
     [field: Header ("Crash")]
     [field: SerializeField] public EventReference crash { get; private set; }
+    
+    [field: Header ("Beam")]                                                 
+    [field: SerializeField] public EventReference beam { get; private set; } 
    public static FmodEvents instance { get; private set; }
    
    private void Awake()
