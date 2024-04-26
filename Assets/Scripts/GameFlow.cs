@@ -33,6 +33,7 @@ public class GameFlow : MonoBehaviour
     [SerializeField] private GameObject restartButton;
     [SerializeField] private GameObject gameUI;
     [SerializeField] private GameObject looseGameScreen;
+    [SerializeField] private GameObject endGameText;
     
     Vector3 playerPosition;
     
@@ -97,6 +98,7 @@ public class GameFlow : MonoBehaviour
         // Intro();
         _hasStoppedAtCrater = false;
         _hasEnded = false;
+        gameIsOver = false;
         var vector3 = playerPosition;
         vector3.y = 0;
         PlayerMovement.Instance.gameObject.transform.position = vector3;
@@ -154,9 +156,12 @@ public class GameFlow : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         playable.Stop();
         // TODO: Replace with timeline event.
-        Camera.main.transform.position = new Vector3(0, 0, -10);
-        Camera.main.orthographicSize = 5;
-        Begin();
+        if (!gameIsOver)
+        {
+            Camera.main.transform.position = new Vector3(0, 0, -10);
+            Camera.main.orthographicSize = 5;
+            Begin();
+        }
     }
     
     private IEnumerator WaitThenPatch(float seconds)
@@ -238,16 +243,16 @@ public class GameFlow : MonoBehaviour
     private void EndGameScreen(bool hasWon)
     {
         gameIsOver = true;
+        endGameText.GetComponent<TMPro.TextMeshProUGUI>().text = hasWon ? "Du klarede det!" : "Æv du styrtede!";
         gameWinScreen.SetActive(true);
 
         if (playable.state != PlayState.Playing)
         {
             Debug.Log("Not Playing!");
 
-            // StartCoroutine(LoadSceneAfterDelay(0, 3));
-            SceneManager.LoadScene(0);
+            StartCoroutine(LoadSceneAfterDelay(0, 3));
+            //SceneManager.LoadScene(0);
         }
-        // TODO: Reset singletons upon scene load.
         // TODO: Show end game screen earlier.
     }
     
