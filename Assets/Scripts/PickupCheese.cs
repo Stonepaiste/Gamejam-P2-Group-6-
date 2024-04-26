@@ -62,16 +62,13 @@ public class PickupCheese : MonoBehaviour
 
     void Pickup()
     {
-        if (canPickupCheese)
+        cheeseCounter++;
+        AudioManager.instance.playOneShot(FmodEvents.instance.cheesePickupSFX, this.transform.position);
+        Debug.Log("Cheese Counter: " + cheeseCounter);
+        _cheeseMeter.GetCheese();
+        if (cheeseCounter >= 9)
         {
-            cheeseCounter++;
-            AudioManager.instance.playOneShot(FmodEvents.instance.cheesePickupSFX, this.transform.position);
-            Debug.Log("Cheese Counter: " + cheeseCounter);
-            _cheeseMeter.GetCheese();
-            if (cheeseCounter >= 9)
-            {
-                GameFlow.Instance.GameWin();
-            }
+            GameFlow.Instance.GameWin();
         }
     }
     
@@ -83,16 +80,21 @@ public class PickupCheese : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Cheese" && !isStinkyCheese)
+        if (canPickupCheese)
         {
-            Pickup();
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "StinkyCheese")
-        {
-            isStinkyCheese = true;
-            StopMovement();
-            Destroy(collision.gameObject);
+            if (collision.gameObject.tag == "Cheese" && !isStinkyCheese)
+            {
+                Pickup();
+                Destroy(collision.gameObject);
+            }
+
+            if (collision.gameObject.tag == "StinkyCheese")
+            {
+                isStinkyCheese = true;
+                StopMovement();
+                PlayerMovement.Instance.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
