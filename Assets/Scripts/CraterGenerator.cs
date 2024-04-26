@@ -20,7 +20,7 @@ public class CraterGenerator : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
     }
     

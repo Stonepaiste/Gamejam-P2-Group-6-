@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class GameFlow : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class GameFlow : MonoBehaviour
     private int patchedCraters = 0;
     private int totalCraters = 0;
     
+    [SerializeField] private TimelineAsset sceneEnterTimeline;
+    [SerializeField] private TimelineAsset sceneExitTimeline;
+    
     [SerializeField] private GameObject countdownTimer;
     [SerializeField] private GameObject gameWinScreen;
     [SerializeField] private GameObject restartButton;
@@ -31,6 +35,8 @@ public class GameFlow : MonoBehaviour
     [SerializeField] private GameObject looseGameScreen;
     
     Vector3 playerPosition;
+    
+    private bool gameIsOver = false;
 
     private PlayableDirector playable;
     private void Awake()
@@ -45,36 +51,50 @@ public class GameFlow : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+    private void Start()
+    {
+        totalCraters = CraterGenerator.Instance.numberOfCraters;
+        playable = PlayerVFX.Instance.gameObject.GetComponent<PlayableDirector>();
+        playerPosition = PlayerMovement.Instance.transform.position;
+        
+        /*// Get object named "GameUI" in the scene
+        gameUI = GameObject.Find("GameUI");
+        // Get object named "CountdownTimer" in the scene
+        countdownTimer = GameObject.Find("CountdownTimer");
+        // Get object named "GameWinScreen" in the scene
+        gameWinScreen = gameWinScreen ? gameWinScreen : GameObject.Find("EndGame");
+        // Get object named "RestartButton" in the scene
+        restartButton = GameObject.Find("RestartButton");
+        // Get object named "LooseGameScreen" in the scene
+        looseGameScreen = GameObject.Find("EndGame");*/
+        Begin();
+    }
     public void GameOver()
     {
         Debug.Log("Game Over!");
         PlayerVFX.Instance.Die();
         StopPlayerActions();
         End();
+        EndGameScreen(false);
     }
     public void GameWin()
     {
         Debug.Log("Game Win!");
+        _hasEnded = true;
         End();
     }
-
-    private void Start()
-    {
-        totalCraters = CraterGenerator.Instance.numberOfCraters;
-        playable = PlayerVFX.Instance.gameObject.GetComponent<PlayableDirector>();
-        
-        playerPosition = PlayerMovement.Instance.transform.position;
-        Begin();
-    }
+    
     
     public void Intro()
     {
         Debug.Log("Intro!");
+        playable.Play(sceneEnterTimeline);
     }
 
     void Begin()
     {
         Debug.Log("Game Start!");
+        // Intro();
         _hasStoppedAtCrater = false;
         _hasEnded = false;
         var vector3 = playerPosition;
@@ -91,7 +111,6 @@ public class GameFlow : MonoBehaviour
         gameUI.SetActive(true);
         countdownTimer.SetActive(true);
         gameWinScreen.SetActive(false);
-        
         ResumeMovement();
     }
 
@@ -100,7 +119,6 @@ public class GameFlow : MonoBehaviour
         Debug.Log("Game Stop!");
         CelestialBodySpawner.Instance.StopSpawning();
         PickupCheese.Instance.canPickupCheese = false;
-        _hasEnded = true;
     }
     
     void StopAtCrater()
@@ -109,21 +127,25 @@ public class GameFlow : MonoBehaviour
         // Get current player position
         Vector3 playerPosition = PlayerMovement.Instance.transform.position;
         float craterDistance;
-        (_closestCrater, craterDistance) = CraterGenerator.Instance.GetClosestCraterRight(playerPosition);
-        if (_closestCrater != null)
+        (_closestCrater, craterDistance) = CraterGenerator.Instance.GetClosestCraterRight(new Vector3(0,0,0));
+        /*if (_closestCrater != null)
         {
             // Debug.Log("Player Position: " + playerPosition + " Closest Crater: " + _closestCrater.transform.position + " Distance: " + craterDistance);
-        }
-        if (craterDistance < 0.1f)
+        }*/
+        if (craterDistance < carterStopDistance)
         {
             Debug.Log("Game Stop at Crater!");
             _hasStoppedAtCrater = true;
-            playable.Play();
-            // When the playable is done, stop the playable and resume the game
-            StartCoroutine(WaitThenResumeGame((float)playable.duration));
-            // MoonRotation.instance.isRotating = false;
             MoonRotation.Instance.StopRotation();
+            playable.Play(sceneExitTimeline);
+            // When the playable is done, stop the playable and resume the game
+            StartCoroutine(WaitThenPatch(12));
             StopGame();
+            if (!gameIsOver)
+            {
+                // Intro();
+                StartCoroutine(WaitThenResumeGame((float)playable.duration));
+            }
         }
     }
     
@@ -136,6 +158,13 @@ public class GameFlow : MonoBehaviour
         Camera.main.orthographicSize = 5;
         Begin();
     }
+    
+    private IEnumerator WaitThenPatch(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        PatchCrater();
+    }
+
     
     public void PatchCrater()
     {
@@ -190,10 +219,12 @@ public class GameFlow : MonoBehaviour
     }
     private void Update()
     {
-        if (PlayerMovement.Instance is not null && !_hasStoppedAtCrater)
+        if (PlayerMovement.Instance is not null)
         {
-            if (_hasEnded)
+            Debug.Log("playermovement is not null");
+            if (_hasEnded && !_hasStoppedAtCrater)
             {
+                Debug.Log("hasEnded and not stopped at crater");
                 StopAtCrater();
             }
         }
@@ -206,13 +237,20 @@ public class GameFlow : MonoBehaviour
     
     private void EndGameScreen(bool hasWon)
     {
+        gameIsOver = true;
         gameWinScreen.SetActive(true);
-        restartButton.SetActive(true);
+
+        if (playable.state != PlayState.Playing)
+        {
+            Debug.Log("Not Playing!");
+            SceneManager.LoadScene(0);
+        }
+        // TODO: Reset singletons upon scene load.
+        // TODO: Show end game screen earlier.
     }
     
     public void ReloadScene()
     {
         SceneManager.LoadScene(1);
     }
-    
 }

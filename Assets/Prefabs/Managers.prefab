@@ -175,8 +175,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carterStopPositionY: 0
-  carterStopDistance: 7.8
+  carterStopDistance: 1.8
   waitForPlayerMovementTime: 3
+  sceneEnterTimeline: {fileID: 11400000, guid: 83034e51d8e08bf42a0d9517cfe1586a, type: 2}
+  sceneExitTimeline: {fileID: 11400000, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}
   countdownTimer: {fileID: 0}
   gameWinScreen: {fileID: 0}
   restartButton: {fileID: 0}

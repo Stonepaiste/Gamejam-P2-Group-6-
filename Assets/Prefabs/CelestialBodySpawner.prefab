@@ -50,9 +50,9 @@ MonoBehaviour:
   stinkyCheesePrefab: {fileID: 8732396851881632974, guid: 342f2a042cdc2a943a9b7b2982b4fab3, type: 3}
   cheeseSpeed: 2
   meteoriteSpeed: 4
-  defaultCheeseAmount: 5
-  defaultMeteoriteAmount: 2
-  defaultStinkyCheeseInterval: 5
+  defaultCheeseAmount: 6
+  defaultMeteoriteAmount: 1
+  defaultStinkyCheeseInterval: 20
   cheesePaddingY: 2
   meteoritePaddingY: 1
   moonPaddingY: 1.5

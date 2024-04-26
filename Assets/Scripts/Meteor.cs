@@ -23,6 +23,4 @@ public class Meteor : MonoBehaviour
             AudioManager.instance.playOneShot(FmodEvents.instance.astroidHit, this.transform.position);
         }
     }
-
-    
 }
