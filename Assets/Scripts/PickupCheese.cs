@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,14 @@ public class PickupCheese : MonoBehaviour
     public static PickupCheese Instance = null;
     public int cheeseCounter = 0;
     [SerializeField] float fallSpeed = 0f;
-    [SerializeField] float shakeAmount = 0.5f;
+    [SerializeField] float shakeAmount = 0.3f;
     [SerializeField] bool isStinkyCheese = false;
     
     public bool canPickupCheese = true; 
 
     CheeseMeter _cheeseMeter;
+
+    private float acclAmount;
 
     private void Awake()
     {
@@ -34,7 +37,23 @@ public class PickupCheese : MonoBehaviour
         cheeseCounter = 0;
         _cheeseMeter = FindObjectOfType<CheeseMeter>();
     }
-    
+
+    private void Update()
+    {
+        acclAmount = Mathf.Abs(Input.acceleration.y);
+        // Debug.Log("accelerometer: " + acclAmount);
+        if (isStinkyCheese)
+        {
+            if (acclAmount > shakeAmount)
+            {
+                Debug.Log("Stinky cheese accelerometer");
+                isStinkyCheese = false;
+                this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+                this.gameObject.GetComponent<PlayerMovement>().enabled = true;
+            }
+        }
+    }
+
 
     private void StopMovement()
     {  
@@ -50,13 +69,7 @@ public class PickupCheese : MonoBehaviour
             fallSpeed = -2f;
             transform.position = new Vector3(transform.position.x, transform.position.y + fallSpeed * Time.deltaTime, transform.position.z);
             Physics.IgnoreLayerCollision(0, 1);
-            if (Input.acceleration.y < -shakeAmount)
-            {
-                Debug.Log("Stinky cheese accelerometer");
-                isStinkyCheese = false;
-                this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
-                this.gameObject.GetComponent<PlayerMovement>().enabled = true;
-            }
+            Debug.Log("Stinky Accl: " + Input.acceleration.y);
         }
     }
 

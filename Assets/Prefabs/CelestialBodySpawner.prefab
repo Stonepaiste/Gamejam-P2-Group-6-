@@ -51,8 +51,8 @@ MonoBehaviour:
   cheeseSpeed: 2
   meteoriteSpeed: 4
   defaultCheeseAmount: 6
-  defaultMeteoriteAmount: 1
-  defaultStinkyCheeseInterval: 20
+  defaultMeteoriteAmount: 1.5
+  defaultStinkyCheeseInterval: 15
   cheesePaddingY: 2
   meteoritePaddingY: 1
   moonPaddingY: 1.5
