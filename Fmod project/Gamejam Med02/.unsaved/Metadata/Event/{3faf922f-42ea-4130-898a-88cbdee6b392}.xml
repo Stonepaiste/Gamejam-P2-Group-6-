@@ -99,7 +99,7 @@
 			<value>4.8000000000000007</value>
 		</property>
 		<property name="volume">
-			<value>-15.5</value>
+			<value>-11.5</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{4277339d-192a-42b2-a7d1-06ad717390ba}</destination>
@@ -107,7 +107,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{45a5b20c-2327-4352-a624-84601104914b}">
 		<property name="volume">
-			<value>-7</value>
+			<value>-2.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
