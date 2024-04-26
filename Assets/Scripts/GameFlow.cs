@@ -49,7 +49,7 @@ public class GameFlow : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
@@ -243,12 +243,19 @@ public class GameFlow : MonoBehaviour
         if (playable.state != PlayState.Playing)
         {
             Debug.Log("Not Playing!");
+
+            // StartCoroutine(LoadSceneAfterDelay(0, 3));
             SceneManager.LoadScene(0);
         }
         // TODO: Reset singletons upon scene load.
         // TODO: Show end game screen earlier.
     }
     
+    private IEnumerator LoadSceneAfterDelay(int sceneIndex, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneIndex);
+    }
     public void ReloadScene()
     {
         SceneManager.LoadScene(1);

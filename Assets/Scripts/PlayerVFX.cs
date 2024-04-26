@@ -20,7 +20,7 @@ public class PlayerVFX : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
     
     [SerializeField] Sprite[] playerLightsSprite;

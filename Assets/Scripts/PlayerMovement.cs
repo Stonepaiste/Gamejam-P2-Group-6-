@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(gameObject);
         }
         
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
         
     }
     

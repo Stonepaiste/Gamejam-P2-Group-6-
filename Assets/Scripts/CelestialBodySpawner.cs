@@ -113,7 +113,7 @@ public class CelestialBodySpawner : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
         
         // Get viewport top and bottom in world space
         float topEdgeY = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;

@@ -22,7 +22,7 @@ public class MoonRotation : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
         
         _currentSpeed = moonSpeed;
     }

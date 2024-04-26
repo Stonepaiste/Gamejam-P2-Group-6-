@@ -130,6 +130,13 @@ MonoBehaviour:
       Data3: 309994635
       Data4: 617486152
     Path: event:/Crash
+  <beam>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &8151344482030955051
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carterStopPositionY: 0
-  carterStopDistance: 1.8
+  carterStopDistance: 1.2
   waitForPlayerMovementTime: 3
   sceneEnterTimeline: {fileID: 11400000, guid: 83034e51d8e08bf42a0d9517cfe1586a, type: 2}
   sceneExitTimeline: {fileID: 11400000, guid: bca2b58ae76319a47987f43d3c61cf5e, type: 2}

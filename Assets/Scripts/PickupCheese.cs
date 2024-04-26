@@ -30,7 +30,7 @@ public class PickupCheese : MonoBehaviour
             Destroy(gameObject);
         }
         
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
         
         cheeseCounter = 0;
         _cheeseMeter = FindObjectOfType<CheeseMeter>();
