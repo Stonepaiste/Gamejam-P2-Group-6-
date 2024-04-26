@@ -12,7 +12,7 @@ public class PickupCheese : MonoBehaviour
     public int cheeseCounter = 0;
     [SerializeField] float fallAmount = 0f;
     [SerializeField] float fallSpeed = 0f;
-    [SerializeField] float shakeAmount = 0.6f;
+    [SerializeField] float shakeAmount = 0.5f;
     [SerializeField] bool isStinkyCheese = false;
     
     public bool canPickupCheese = true; 
@@ -92,7 +92,7 @@ public class PickupCheese : MonoBehaviour
             {
                 isStinkyCheese = true;
                 StopMovement();
-                PlayerMovement.Instance.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                //PlayerMovement.Instance.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 Destroy(collision.gameObject);
             }
         }
