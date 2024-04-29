@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crater: {fileID: 8862534204992240648, guid: 405c9b130f59c74469261780908615cf, type: 3}
-  numberOfCraters: 6
+  numberOfCraters: 5
   moonRadius: 17
   minDistance: 5
 --- !u!114 &5806716395976021670

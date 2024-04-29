@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Supergroup
-  productName: CheeseDippa
+  productName: Hullet Situationer
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -161,7 +161,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.Supergroup.CheeseDippa
+    Android: com.Supergroup.HulletSituationer
     Standalone: com.DefaultCompany.Gamejam-Med02-Gruppe-6
     iPhone: com.DefaultCompany.Gamejam-Med02-Gruppe-6
   buildNumber:
