@@ -9,7 +9,7 @@ public class PlayButton : MonoBehaviour
     {
         //SceneManager.LoadScene("IntroScene");
         SceneManager.LoadScene(1);        //Scene index i stedet
-        Debug.Log("You have clicked");
+        Debug.Log("Play button is clicked");
 
  
     }
